@@ -7,7 +7,7 @@
 
 import UIKit
 
-class _ViewController: UIViewController {
+class fifthViewController: UIViewController {
     //MARK: - Parameters
     
     
@@ -16,7 +16,7 @@ class _ViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .green
     }
     
     //MARK: - Methods

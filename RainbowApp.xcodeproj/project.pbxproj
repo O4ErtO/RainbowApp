@@ -9,27 +9,23 @@
 /* Begin PBXBuildFile section */
 		0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A882AFD19AD00DF885A /* AppDelegate.swift */; };
 		0A162A8B2AFD19AD00DF885A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A8A2AFD19AD00DF885A /* SceneDelegate.swift */; };
-		0A162A8D2AFD19AD00DF885A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A8C2AFD19AD00DF885A /* ViewController.swift */; };
-		0A162A902AFD19AD00DF885A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A162A8E2AFD19AD00DF885A /* Main.storyboard */; };
 		0A162A922AFD19AE00DF885A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A162A912AFD19AE00DF885A /* Assets.xcassets */; };
 		0A162A952AFD19AE00DF885A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A162A932AFD19AE00DF885A /* LaunchScreen.storyboard */; };
-		0A162AA52AFD1B3900DF885A /* 5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA42AFD1B3900DF885A /* 5ViewController.swift */; };
-		0A162AA72AFD1BB200DF885A /* 5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA62AFD1BB200DF885A /* 5View.swift */; };
-		0A162AA92AFD1CF300DF885A /* 5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA82AFD1CF300DF885A /* 5Model.swift */; };
+		0A162AA52AFD1B3900DF885A /* fifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA42AFD1B3900DF885A /* fifthViewController.swift */; };
+		0A162AA72AFD1BB200DF885A /* fifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA62AFD1BB200DF885A /* fifthView.swift */; };
+		0A162AA92AFD1CF300DF885A /* fifthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA82AFD1CF300DF885A /* fifthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A162A852AFD19AD00DF885A /* RainbowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A162A882AFD19AD00DF885A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A162A8A2AFD19AD00DF885A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0A162A8C2AFD19AD00DF885A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0A162A8F2AFD19AD00DF885A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A162A912AFD19AE00DF885A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A162A942AFD19AE00DF885A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A162A962AFD19AE00DF885A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A162AA42AFD1B3900DF885A /* 5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5ViewController.swift; sourceTree = "<group>"; };
-		0A162AA62AFD1BB200DF885A /* 5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5View.swift; sourceTree = "<group>"; };
-		0A162AA82AFD1CF300DF885A /* 5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5Model.swift; sourceTree = "<group>"; };
+		0A162AA42AFD1B3900DF885A /* fifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthViewController.swift; sourceTree = "<group>"; };
+		0A162AA62AFD1BB200DF885A /* fifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthView.swift; sourceTree = "<group>"; };
+		0A162AA82AFD1CF300DF885A /* fifthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +58,8 @@
 		0A162A872AFD19AD00DF885A /* RainbowApp */ = {
 			isa = PBXGroup;
 			children = (
-				0A162A9D2AFD1A6900DF885A /* Modules */,
 				0A162A9C2AFD1A0600DF885A /* App */,
-				0A162A8C2AFD19AD00DF885A /* ViewController.swift */,
-				0A162A8E2AFD19AD00DF885A /* Main.storyboard */,
+				0A162A9D2AFD1A6900DF885A /* Modules */,
 				0A162A912AFD19AE00DF885A /* Assets.xcassets */,
 				0A162A932AFD19AE00DF885A /* LaunchScreen.storyboard */,
 				0A162A962AFD19AE00DF885A /* Info.plist */,
@@ -85,25 +79,25 @@
 		0A162A9D2AFD1A6900DF885A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0A162A9F2AFD1AA400DF885A /* 5-thModule */,
+				0A162A9F2AFD1AA400DF885A /* fifthModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		0A162A9F2AFD1AA400DF885A /* 5-thModule */ = {
+		0A162A9F2AFD1AA400DF885A /* fifthModule */ = {
 			isa = PBXGroup;
 			children = (
 				0A162AA32AFD1AFB00DF885A /* Model */,
 				0A162AA22AFD1AEE00DF885A /* View */,
 				0A162AA12AFD1ADD00DF885A /* Controller */,
 			);
-			path = "5-thModule";
+			path = fifthModule;
 			sourceTree = "<group>";
 		};
 		0A162AA12AFD1ADD00DF885A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AA42AFD1B3900DF885A /* 5ViewController.swift */,
+				0A162AA42AFD1B3900DF885A /* fifthViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,7 +105,7 @@
 		0A162AA22AFD1AEE00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AA62AFD1BB200DF885A /* 5View.swift */,
+				0A162AA62AFD1BB200DF885A /* fifthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,7 +113,7 @@
 		0A162AA32AFD1AFB00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AA82AFD1CF300DF885A /* 5Model.swift */,
+				0A162AA82AFD1CF300DF885A /* fifthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +178,6 @@
 			files = (
 				0A162A952AFD19AE00DF885A /* LaunchScreen.storyboard in Resources */,
 				0A162A922AFD19AE00DF885A /* Assets.xcassets in Resources */,
-				0A162A902AFD19AD00DF885A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,26 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A162AA52AFD1B3900DF885A /* 5ViewController.swift in Sources */,
-				0A162AA92AFD1CF300DF885A /* 5Model.swift in Sources */,
-				0A162A8D2AFD19AD00DF885A /* ViewController.swift in Sources */,
+				0A162AA52AFD1B3900DF885A /* fifthViewController.swift in Sources */,
+				0A162AA92AFD1CF300DF885A /* fifthModel.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
 				0A162A8B2AFD19AD00DF885A /* SceneDelegate.swift in Sources */,
-				0A162AA72AFD1BB200DF885A /* 5View.swift in Sources */,
+				0A162AA72AFD1BB200DF885A /* fifthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0A162A8E2AFD19AD00DF885A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A162A8F2AFD19AD00DF885A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0A162A932AFD19AE00DF885A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -357,9 +341,8 @@
 				INFOPLIST_FILE = RainbowApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,9 +351,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zmey666.RainbowApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,9 +372,8 @@
 				INFOPLIST_FILE = RainbowApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,9 +382,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zmey666.RainbowApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
