@@ -7,7 +7,7 @@
 
 import UIKit
 
-class fourthView: UIView {
+class settingsView: UIView {
 
     //MARK: - Parameters
     

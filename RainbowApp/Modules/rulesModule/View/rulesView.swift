@@ -7,7 +7,7 @@
 
 import UIKit
 
-class fifthView: UIView {
+class rulesView: UIView {
 
     //MARK: - Parameters
     

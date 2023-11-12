@@ -7,7 +7,7 @@
 
 import UIKit
 
-class firstViewController: UIViewController {
+class mainViewController: UIViewController {
     //MARK: - Parameters
     
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class fifthViewController: UIViewController {
+class settingsViewController: UIViewController {
     //MARK: - Parameters
     
     

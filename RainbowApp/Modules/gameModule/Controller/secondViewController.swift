@@ -7,7 +7,7 @@
 
 import UIKit
 
-class secondViewController: UIViewController {
+class gameViewController: UIViewController {
     //MARK: - Parameters
     
     

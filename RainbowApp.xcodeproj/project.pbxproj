@@ -10,21 +10,18 @@
 		0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A882AFD19AD00DF885A /* AppDelegate.swift */; };
 		0A162A8B2AFD19AD00DF885A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A8A2AFD19AD00DF885A /* SceneDelegate.swift */; };
 		0A162A922AFD19AE00DF885A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A162A912AFD19AE00DF885A /* Assets.xcassets */; };
-		0A162AA52AFD1B3900DF885A /* fifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA42AFD1B3900DF885A /* fifthViewController.swift */; };
-		0A162AA72AFD1BB200DF885A /* fifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA62AFD1BB200DF885A /* fifthView.swift */; };
-		0A162AA92AFD1CF300DF885A /* fifthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AA82AFD1CF300DF885A /* fifthModel.swift */; };
 		0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAD2AFD20FA00DF885A /* secondViewController.swift */; };
-		0A162AC82AFD20FA00DF885A /* secondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAF2AFD20FA00DF885A /* secondModel.swift */; };
-		0A162AC92AFD20FA00DF885A /* secondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB12AFD20FA00DF885A /* secondView.swift */; };
-		0A162ACA2AFD20FA00DF885A /* fourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB42AFD20FA00DF885A /* fourthViewController.swift */; };
-		0A162ACB2AFD20FA00DF885A /* fourthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB62AFD20FA00DF885A /* fourthModel.swift */; };
-		0A162ACC2AFD20FA00DF885A /* fourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB82AFD20FA00DF885A /* fourthView.swift */; };
-		0A162ACD2AFD20FA00DF885A /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABB2AFD20FA00DF885A /* firstViewController.swift */; };
-		0A162ACE2AFD20FA00DF885A /* firstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABD2AFD20FA00DF885A /* firstModel.swift */; };
-		0A162ACF2AFD20FA00DF885A /* firstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABF2AFD20FA00DF885A /* firstView.swift */; };
-		0A162AD02AFD20FA00DF885A /* thirdViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC22AFD20FA00DF885A /* thirdViewControllerViewController.swift */; };
-		0A162AD12AFD20FA00DF885A /* thirdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC42AFD20FA00DF885A /* thirdModel.swift */; };
-		0A162AD22AFD20FA00DF885A /* thirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC62AFD20FA00DF885A /* thirdView.swift */; };
+		0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAF2AFD20FA00DF885A /* gameModel.swift */; };
+		0A162AC92AFD20FA00DF885A /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB12AFD20FA00DF885A /* gameView.swift */; };
+		0A162ACA2AFD20FA00DF885A /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB42AFD20FA00DF885A /* settingsViewController.swift */; };
+		0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB62AFD20FA00DF885A /* setingsModel.swift */; };
+		0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB82AFD20FA00DF885A /* settingsView.swift */; };
+		0A162ACD2AFD20FA00DF885A /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABB2AFD20FA00DF885A /* mainViewController.swift */; };
+		0A162ACE2AFD20FA00DF885A /* mainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABD2AFD20FA00DF885A /* mainModel.swift */; };
+		0A162ACF2AFD20FA00DF885A /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162ABF2AFD20FA00DF885A /* mainView.swift */; };
+		0A162AD02AFD20FA00DF885A /* rulesViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC22AFD20FA00DF885A /* rulesViewControllerViewController.swift */; };
+		0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC42AFD20FA00DF885A /* rulesModel.swift */; };
+		0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC62AFD20FA00DF885A /* rulesView.swift */; };
 		0A162AD62AFD239500DF885A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A162AD52AFD239500DF885A /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -34,21 +31,18 @@
 		0A162A8A2AFD19AD00DF885A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0A162A912AFD19AE00DF885A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A162A962AFD19AE00DF885A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A162AA42AFD1B3900DF885A /* fifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthViewController.swift; sourceTree = "<group>"; };
-		0A162AA62AFD1BB200DF885A /* fifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthView.swift; sourceTree = "<group>"; };
-		0A162AA82AFD1CF300DF885A /* fifthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthModel.swift; sourceTree = "<group>"; };
 		0A162AAD2AFD20FA00DF885A /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
-		0A162AAF2AFD20FA00DF885A /* secondModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondModel.swift; sourceTree = "<group>"; };
-		0A162AB12AFD20FA00DF885A /* secondView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondView.swift; sourceTree = "<group>"; };
-		0A162AB42AFD20FA00DF885A /* fourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthViewController.swift; sourceTree = "<group>"; };
-		0A162AB62AFD20FA00DF885A /* fourthModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthModel.swift; sourceTree = "<group>"; };
-		0A162AB82AFD20FA00DF885A /* fourthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthView.swift; sourceTree = "<group>"; };
-		0A162ABB2AFD20FA00DF885A /* firstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
-		0A162ABD2AFD20FA00DF885A /* firstModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstModel.swift; sourceTree = "<group>"; };
-		0A162ABF2AFD20FA00DF885A /* firstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstView.swift; sourceTree = "<group>"; };
-		0A162AC22AFD20FA00DF885A /* thirdViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewControllerViewController.swift; sourceTree = "<group>"; };
-		0A162AC42AFD20FA00DF885A /* thirdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdModel.swift; sourceTree = "<group>"; };
-		0A162AC62AFD20FA00DF885A /* thirdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdView.swift; sourceTree = "<group>"; };
+		0A162AAF2AFD20FA00DF885A /* gameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameModel.swift; sourceTree = "<group>"; };
+		0A162AB12AFD20FA00DF885A /* gameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
+		0A162AB42AFD20FA00DF885A /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		0A162AB62AFD20FA00DF885A /* setingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setingsModel.swift; sourceTree = "<group>"; };
+		0A162AB82AFD20FA00DF885A /* settingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		0A162ABB2AFD20FA00DF885A /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		0A162ABD2AFD20FA00DF885A /* mainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainModel.swift; sourceTree = "<group>"; };
+		0A162ABF2AFD20FA00DF885A /* mainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		0A162AC22AFD20FA00DF885A /* rulesViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rulesViewControllerViewController.swift; sourceTree = "<group>"; };
+		0A162AC42AFD20FA00DF885A /* rulesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rulesModel.swift; sourceTree = "<group>"; };
+		0A162AC62AFD20FA00DF885A /* rulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rulesView.swift; sourceTree = "<group>"; };
 		0A162AD52AFD239500DF885A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,47 +96,12 @@
 		0A162A9D2AFD1A6900DF885A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB92AFD20FA00DF885A /* firstModule */,
-				0A162AAB2AFD20FA00DF885A /* secondModule */,
-				0A162AC02AFD20FA00DF885A /* thirdModule */,
-				0A162AB22AFD20FA00DF885A /* fourthModule */,
-				0A162A9F2AFD1AA400DF885A /* fifthModule */,
+				0A162AB92AFD20FA00DF885A /* mainModule */,
+				0A162AAB2AFD20FA00DF885A /* gameModule */,
+				0A162AC02AFD20FA00DF885A /* rulesModule */,
+				0A162AB22AFD20FA00DF885A /* settingsModule */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		0A162A9F2AFD1AA400DF885A /* fifthModule */ = {
-			isa = PBXGroup;
-			children = (
-				0A162AA32AFD1AFB00DF885A /* Model */,
-				0A162AA22AFD1AEE00DF885A /* View */,
-				0A162AA12AFD1ADD00DF885A /* Controller */,
-			);
-			path = fifthModule;
-			sourceTree = "<group>";
-		};
-		0A162AA12AFD1ADD00DF885A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				0A162AA42AFD1B3900DF885A /* fifthViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		0A162AA22AFD1AEE00DF885A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0A162AA62AFD1BB200DF885A /* fifthView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0A162AA32AFD1AFB00DF885A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0A162AA82AFD1CF300DF885A /* fifthModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0A162AAA2AFD201200DF885A /* SupportingFiles */ = {
@@ -154,14 +113,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		0A162AAB2AFD20FA00DF885A /* secondModule */ = {
+		0A162AAB2AFD20FA00DF885A /* gameModule */ = {
 			isa = PBXGroup;
 			children = (
 				0A162AAE2AFD20FA00DF885A /* Model */,
 				0A162AB02AFD20FA00DF885A /* View */,
 				0A162AAC2AFD20FA00DF885A /* Controller */,
 			);
-			path = secondModule;
+			path = gameModule;
 			sourceTree = "<group>";
 		};
 		0A162AAC2AFD20FA00DF885A /* Controller */ = {
@@ -175,7 +134,7 @@
 		0A162AAE2AFD20FA00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AAF2AFD20FA00DF885A /* secondModel.swift */,
+				0A162AAF2AFD20FA00DF885A /* gameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,25 +142,25 @@
 		0A162AB02AFD20FA00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB12AFD20FA00DF885A /* secondView.swift */,
+				0A162AB12AFD20FA00DF885A /* gameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0A162AB22AFD20FA00DF885A /* fourthModule */ = {
+		0A162AB22AFD20FA00DF885A /* settingsModule */ = {
 			isa = PBXGroup;
 			children = (
 				0A162AB52AFD20FA00DF885A /* Model */,
 				0A162AB72AFD20FA00DF885A /* View */,
 				0A162AB32AFD20FA00DF885A /* Controller */,
 			);
-			path = fourthModule;
+			path = settingsModule;
 			sourceTree = "<group>";
 		};
 		0A162AB32AFD20FA00DF885A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB42AFD20FA00DF885A /* fourthViewController.swift */,
+				0A162AB42AFD20FA00DF885A /* settingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,7 +168,7 @@
 		0A162AB52AFD20FA00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB62AFD20FA00DF885A /* fourthModel.swift */,
+				0A162AB62AFD20FA00DF885A /* setingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,25 +176,25 @@
 		0A162AB72AFD20FA00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB82AFD20FA00DF885A /* fourthView.swift */,
+				0A162AB82AFD20FA00DF885A /* settingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0A162AB92AFD20FA00DF885A /* firstModule */ = {
+		0A162AB92AFD20FA00DF885A /* mainModule */ = {
 			isa = PBXGroup;
 			children = (
 				0A162ABC2AFD20FA00DF885A /* Model */,
 				0A162ABE2AFD20FA00DF885A /* View */,
 				0A162ABA2AFD20FA00DF885A /* Controller */,
 			);
-			path = firstModule;
+			path = mainModule;
 			sourceTree = "<group>";
 		};
 		0A162ABA2AFD20FA00DF885A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A162ABB2AFD20FA00DF885A /* firstViewController.swift */,
+				0A162ABB2AFD20FA00DF885A /* mainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,7 +202,7 @@
 		0A162ABC2AFD20FA00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162ABD2AFD20FA00DF885A /* firstModel.swift */,
+				0A162ABD2AFD20FA00DF885A /* mainModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,25 +210,25 @@
 		0A162ABE2AFD20FA00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162ABF2AFD20FA00DF885A /* firstView.swift */,
+				0A162ABF2AFD20FA00DF885A /* mainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0A162AC02AFD20FA00DF885A /* thirdModule */ = {
+		0A162AC02AFD20FA00DF885A /* rulesModule */ = {
 			isa = PBXGroup;
 			children = (
 				0A162AC32AFD20FA00DF885A /* Model */,
 				0A162AC52AFD20FA00DF885A /* View */,
 				0A162AC12AFD20FA00DF885A /* Controller */,
 			);
-			path = thirdModule;
+			path = rulesModule;
 			sourceTree = "<group>";
 		};
 		0A162AC12AFD20FA00DF885A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AC22AFD20FA00DF885A /* thirdViewControllerViewController.swift */,
+				0A162AC22AFD20FA00DF885A /* rulesViewControllerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,7 +236,7 @@
 		0A162AC32AFD20FA00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AC42AFD20FA00DF885A /* thirdModel.swift */,
+				0A162AC42AFD20FA00DF885A /* rulesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,7 +244,7 @@
 		0A162AC52AFD20FA00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AC62AFD20FA00DF885A /* thirdView.swift */,
+				0A162AC62AFD20FA00DF885A /* rulesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,23 +319,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A162AA52AFD1B3900DF885A /* fifthViewController.swift in Sources */,
-				0A162ACC2AFD20FA00DF885A /* fourthView.swift in Sources */,
-				0A162AA92AFD1CF300DF885A /* fifthModel.swift in Sources */,
+				0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */,
 				0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */,
-				0A162ACB2AFD20FA00DF885A /* fourthModel.swift in Sources */,
+				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
-				0A162ACF2AFD20FA00DF885A /* firstView.swift in Sources */,
+				0A162ACF2AFD20FA00DF885A /* mainView.swift in Sources */,
 				0A162A8B2AFD19AD00DF885A /* SceneDelegate.swift in Sources */,
-				0A162AC82AFD20FA00DF885A /* secondModel.swift in Sources */,
-				0A162ACD2AFD20FA00DF885A /* firstViewController.swift in Sources */,
-				0A162AC92AFD20FA00DF885A /* secondView.swift in Sources */,
-				0A162AD02AFD20FA00DF885A /* thirdViewControllerViewController.swift in Sources */,
-				0A162AD22AFD20FA00DF885A /* thirdView.swift in Sources */,
-				0A162ACE2AFD20FA00DF885A /* firstModel.swift in Sources */,
-				0A162AD12AFD20FA00DF885A /* thirdModel.swift in Sources */,
-				0A162AA72AFD1BB200DF885A /* fifthView.swift in Sources */,
-				0A162ACA2AFD20FA00DF885A /* fourthViewController.swift in Sources */,
+				0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */,
+				0A162ACD2AFD20FA00DF885A /* mainViewController.swift in Sources */,
+				0A162AC92AFD20FA00DF885A /* gameView.swift in Sources */,
+				0A162AD02AFD20FA00DF885A /* rulesViewControllerViewController.swift in Sources */,
+				0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */,
+				0A162ACE2AFD20FA00DF885A /* mainModel.swift in Sources */,
+				0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */,
+				0A162ACA2AFD20FA00DF885A /* settingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

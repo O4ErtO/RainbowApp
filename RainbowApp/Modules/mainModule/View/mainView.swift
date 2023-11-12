@@ -7,7 +7,7 @@
 
 import UIKit
 
-class secondView: UIView {
+class mainView: UIView {
 
     //MARK: - Parameters
     

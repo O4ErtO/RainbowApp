@@ -7,7 +7,7 @@
 
 import UIKit
 
-class fourthViewController: UIViewController {
+class rulesViewController: UIViewController {
     //MARK: - Parameters
     
     

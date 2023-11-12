@@ -7,7 +7,7 @@
 
 import UIKit
 
-class firstView: UIView {
+class gameView: UIView {
 
     //MARK: - Parameters
     
