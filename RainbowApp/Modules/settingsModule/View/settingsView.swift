@@ -31,39 +31,39 @@ class SettingsView: UIView {
     var checkBoxColors = [ColorboxView]()
        
     // cell 1
-    private lazy var gameTimeLabel = UILabel(text: "Время игры")
+    private lazy var gameTimeLabel = UILabel(text: SettingsLabel.gameTime)
     let timeSlider = UISlider(maxValue: 60, minValue: 5)
     lazy var timeSetLabel = UILabel(text: String(format: "%.0f", timeSlider.value) + " c")
     
     // cell 2
-    private lazy var speedLabel = UILabel(text: "Скорость смены заданий")
+    private lazy var speedLabel = UILabel(text: SettingsLabel.speed)
     let speedSlider = UISlider(maxValue: 15, minValue: 1)
     lazy var speedSetLabel = UILabel(text: String(format: "%.0f", speedSlider.value) + " c")
     
     // cell 3
-    private lazy var isCheckLabel = UILabel(text: "Игра с проверкой заданий")
+    private lazy var isCheckLabel = UILabel(text: SettingsLabel.check)
     let checkSwitch = UISwitch(isOn: true)
     
     // cell 4
-    private lazy var colorLabel = UILabel(text: "Цвета букв")
+    private lazy var colorLabel = UILabel(text: SettingsLabel.letterColors)
     
     // cell 5
-    private lazy var sizeLetterLabel = UILabel(text: "Размер букв")
+    private lazy var sizeLetterLabel = UILabel(text: SettingsLabel.letterSize)
     private var stepper = UIStepper(maxValue: 36, minValue: 12, value: 20)
     lazy var exSizeLabel = UILabel(text: "Aa")
     
     // cell 6
-    private lazy var wordBgLabel = UILabel(text: "Подложка для букв")
+    private lazy var wordBgLabel = UILabel(text: SettingsLabel.letterBg)
     let bgSwitch = UISwitch(isOn: false)
    
     // cell7
-    private lazy var bgColorLabel = UILabel(text: "Цвет фона")
+    private lazy var bgColorLabel = UILabel(text: SettingsLabel.bg)
     private lazy var bgControl = UISegmentedControl(
         items: ["Серый", "Белый", "Черный"],
         selectedIndex: 0
     )
     // cell 8
-    private lazy var positionLabel = UILabel(text: "Расположение слова на экране")
+    private lazy var positionLabel = UILabel(text: SettingsLabel.position)
     private lazy var positionControl = UISegmentedControl(
         items: ["Случайное", "По центру"],
         selectedIndex: 0
