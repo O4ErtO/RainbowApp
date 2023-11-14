@@ -12,15 +12,14 @@ class settingsViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
         setViews()
-        settingsView.delegate = self
     }
 }
 
 extension settingsViewController {    
     private func setViews() {
         view = settingsView
+        settingsView.delegate = self
     }
 }
 
@@ -36,7 +35,7 @@ extension settingsViewController: SettingsViewDelegate {
     func switchAction(sender: UISwitch) {}
     
     func didTapColorBox(sender: UITapGestureRecognizer) {
-        let checkBox = sender.view as! ColorboxView
+        guard let checkBox = sender.view as? ColorboxView else { return }
             checkBox.toggle()
     }
     

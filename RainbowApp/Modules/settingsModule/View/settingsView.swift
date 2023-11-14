@@ -18,8 +18,25 @@ class SettingsView: UIView {
     // MARK: - Parameters
     weak var delegate: SettingsViewDelegate?
     
-    private var mainStackView = UIStackView()
-    private var scrollView = UIScrollView()
+    private lazy var mainStackView: UIStackView = {
+        let element = UIStackView(
+            axis: .vertical,
+            distribution: .fillProportionally,
+            subViews: customCell
+        )
+        element.spacing = 24
+        element.alignment = .center
+        return element
+    }()
+    
+    private var scrollView: UIScrollView = {
+        let element = UIScrollView()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.showsVerticalScrollIndicator = false
+        element.isScrollEnabled = true
+        return element
+    }()
+    
     private var colorRowStackView = UIStackView()
     private var colorSecondRowStackView = UIStackView()
     
@@ -109,18 +126,7 @@ class SettingsView: UIView {
         for _ in 0...7 {
             customCell.append(SettingsCellView(frame: .zero))
         }
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.isScrollEnabled = true
         addSubview(scrollView)
-        
-        mainStackView = UIStackView(
-            axis: .vertical,
-            distribution: .fillProportionally,
-            subViews: customCell
-        )
-        mainStackView.spacing = 24
-        mainStackView.alignment = .center
         scrollView.addSubview(mainStackView)
         
         customCell[0].addSubview(gameTimeLabel)

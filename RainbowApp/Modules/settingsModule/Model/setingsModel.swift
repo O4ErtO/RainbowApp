@@ -15,15 +15,10 @@ struct SettingsModel: Codable {
     var wordPosition: String
 }
     
-    enum CodingKeys: String, CodingKey {
-        case gameTime, changeTime, isCoutTask, selectedColors,
-             textSize, isTextBackground,backgrondColor, wordPosition
-}
-
 enum BgColor: String {
     case black = "black"
-    case gray = "gray"
-    case white = "white"
+    case gray
+    case white
 }
 
 enum WordPosition {

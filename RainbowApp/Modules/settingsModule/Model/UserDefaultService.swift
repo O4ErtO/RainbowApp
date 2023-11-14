@@ -9,6 +9,8 @@ final class UserDefaultService {
     static let shared = UserDefaultService()
     private let defaults = UserDefaults.standard
     
+    private init() {}
+    
     // Сохраняем любое Codable
     func saveData<T: Codable>(type: T, forKey key: String) {
         if let encoded = try? JSONEncoder().encode(type) {
