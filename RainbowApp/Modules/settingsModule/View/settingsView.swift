@@ -94,6 +94,47 @@ class SettingsView: UIView {
     }
     
     //MARK: - Methods
+    //MARK: - Methods
+    @objc func sliderChanged (_ sender: UISlider) {
+        if sender == timeSlider {
+            timeSetLabel.text = String(format: "%.0f", sender.value) + " c"
+        } else {
+            speedSetLabel.text = String(format: "%.0f", sender.value) + " c"
+        }
+    }
+    
+    @objc func stepperAction(sender: UIStepper) {
+        exSizeLabel.font = .systemFont(ofSize: sender.value)
+    }
+    
+    @objc func switchAction(sender: UISwitch) {
+        if sender.isOn {
+        } else {
+        }
+    }
+    
+    @objc func changeColor(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+            case 1:
+                self.backgroundColor = UIColor.white
+            case 2:
+                self.backgroundColor = UIColor.black
+            default:
+                self.backgroundColor = UIColor.gray
+            }
+    }
+    
+    @objc func wordPosition(_ sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
+    }
+    
+    @objc func didTapCheckbox(sender: UITapGestureRecognizer) {
+        let checkBox = sender.view as! ColorboxView
+            checkBox.toggle()
+    }
+    
+    
+    
     private func setUpView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
@@ -112,13 +153,16 @@ class SettingsView: UIView {
         customCell[0].addSubview(gameTimeLabel)
         customCell[0].addSubview(timeSlider)
         customCell[0].addSubview(timeSetLabel)
-     
+        timeSlider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
+    
         customCell[1].addSubview(speedLabel)
         customCell[1].addSubview(speedSlider)
         customCell[1].addSubview(speedSetLabel)
+        speedSlider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
         
         customCell[2].addSubview(isCheckLabel)
         customCell[2].addSubview(checkSwitch)
+        checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
         
         colorRowStackView = UIStackView(
             axis: .horizontal,
@@ -137,18 +181,25 @@ class SettingsView: UIView {
         customCell[3].addSubview(colorSecondRowStackView)
         customCell[3].addSubview(colorLabel)
         
+        for button in checkBoxColors {
+            button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox)))
+        }
+        
         customCell[4].addSubview(sizeLetterLabel)
         customCell[4].addSubview(stepper)
         customCell[4].addSubview(exSizeLabel)
+        stepper.addTarget(self, action: #selector(stepperAction), for: .valueChanged)
         
         customCell[5].addSubview(wordBgLabel)
         customCell[5].addSubview(bgSwitch)
         
         customCell[6].addSubview(bgColorLabel)
         customCell[6].addSubview(bgControl)
+        bgControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
         
         customCell[7].addSubview(positionLabel)
         customCell[7].addSubview(positionControl)
+        positionControl.addTarget(self, action: #selector(wordPosition), for: .valueChanged)
     }
     
     func setConstraints() {
@@ -187,7 +238,7 @@ class SettingsView: UIView {
             checkSwitch.trailingAnchor.constraint(equalTo: customCell[2].trailingAnchor, constant: -24),
         ])
         
-        //checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
+
        // Сell 4
     
         // MARK: Colors Stack
@@ -210,13 +261,8 @@ class SettingsView: UIView {
             colorSecondRowStackView.topAnchor.constraint(equalTo: colorRowStackView.bottomAnchor, constant: 8),
             colorSecondRowStackView.centerXAnchor.constraint(equalTo: colorRowStackView.centerXAnchor)
         ])
-        // cell 4 end
         
         // сell 5
-      
-
-      //  stepper.addTarget(self, action: #selector(stepperAction), for: .valueChanged)
-            
         NSLayoutConstraint.activate([
             sizeLetterLabel.leadingAnchor.constraint(equalTo: customCell[4].leadingAnchor, constant: 16),
             sizeLetterLabel.topAnchor.constraint(equalTo: customCell[4].topAnchor,constant: 24),
@@ -241,12 +287,7 @@ class SettingsView: UIView {
             wordBgLabel.topAnchor.constraint(equalTo: customCell[5].topAnchor,constant: 24),
             wordBgLabel.centerYAnchor.constraint(equalTo: customCell[5].centerYAnchor),
         ])
-        // cell 6 end
-        
         // cell 7
-
-     //   bgControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-      
         NSLayoutConstraint.activate([
             bgColorLabel.topAnchor.constraint(equalTo: customCell[6].topAnchor, constant: 24),
             bgColorLabel.leadingAnchor.constraint(equalTo: customCell[6].leadingAnchor, constant: 16),
@@ -254,11 +295,7 @@ class SettingsView: UIView {
             bgControl.bottomAnchor.constraint(equalTo: customCell[6].bottomAnchor, constant: -16),
             bgControl.leadingAnchor.constraint(equalTo: customCell[6].leadingAnchor, constant: 16),
             bgControl.trailingAnchor.constraint(equalTo: customCell[6].trailingAnchor, constant: -16)])
-        // cell 7 end
-        
         // cell 8
-   //     positionControl.addTarget(self, action: #selector(wordPosition), for: .valueChanged)
-        
         NSLayoutConstraint.activate([
             positionLabel.topAnchor.constraint(equalTo: customCell[7].topAnchor, constant: 24),
             positionLabel.leadingAnchor.constraint(equalTo: customCell[7].leadingAnchor, constant: 16),
@@ -266,7 +303,6 @@ class SettingsView: UIView {
             positionControl.bottomAnchor.constraint(equalTo: customCell[7].bottomAnchor, constant: -16),
             positionControl.leadingAnchor.constraint(equalTo: customCell[7].leadingAnchor, constant: 16),
             positionControl.trailingAnchor.constraint(equalTo: customCell[7].trailingAnchor, constant: -16)])
-        // cell 8 end
     
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
