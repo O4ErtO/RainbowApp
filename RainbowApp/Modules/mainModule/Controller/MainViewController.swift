@@ -31,12 +31,12 @@ extension MainViewController {
 
 extension MainViewController: MainViewDelegate {
     func didTapNewGameButton() {
-        let vc = gameViewController()
+        let vc = GameViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapNextButton() {
-        let vc = gameViewController()
+        let vc = GameViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
