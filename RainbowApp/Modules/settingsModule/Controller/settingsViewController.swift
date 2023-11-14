@@ -53,13 +53,15 @@ extension settingsViewController: SettingsViewDelegate {
     }
     
     func changeBgColor(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+        UIView.animate(withDuration: 1) {
+            switch sender.selectedSegmentIndex {
             case 1:
-                settingsView.backgroundColor = UIColor.white
+                self.settingsView.backgroundColor = UIColor.white
             case 2:
-                settingsView.backgroundColor = UIColor.black
+                self.settingsView.backgroundColor = UIColor.black
             default:
-                settingsView.backgroundColor = UIColor.gray
+                self.settingsView.backgroundColor = UIColor.gray
+            }
         }
     }
     

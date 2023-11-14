@@ -23,32 +23,13 @@ class SettingsView: UIView {
     private var colorRowStackView = UIStackView()
     private var colorSecondRowStackView = UIStackView()
     
-    var customCell = [
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero),
-       SettingsCellView(frame: .zero)
-       ]
+    var customCell = [SettingsCellView]()
+    var colors: [UIColor] = [
+        .cyan, .green, .blue, .purple, .systemPink, .orange, .red, .systemTeal, .magenta, .systemIndigo, .black, .gray]
+
     
-    var checkBoxColors = [
-        ColorboxView(color: .cyan),
-        ColorboxView(color: .green),
-        ColorboxView(color: .blue),
-        ColorboxView(color: .purple),
-        ColorboxView(color: .systemPink),
-        ColorboxView(color: .orange),
-        ColorboxView(color: .red),
-        ColorboxView(color: .systemTeal),
-        ColorboxView(color: .magenta),
-        ColorboxView(color: .systemIndigo),
-        ColorboxView(color: .black),
-        ColorboxView(color: .gray)
-    ]
-    
+    var checkBoxColors = [ColorboxView]()
+       
     // cell 1
     private lazy var gameTimeLabel = UILabel(text: "Время игры")
     let timeSlider = UISlider(maxValue: 60, minValue: 5)
@@ -88,9 +69,7 @@ class SettingsView: UIView {
         selectedIndex: 0
     )
     
-    
     //MARK: - Init
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .gray
@@ -128,9 +107,10 @@ class SettingsView: UIView {
         delegate?.didTapColorBox(sender: sender)
     }
     
-    
-    
     private func setUpView() {
+        for _ in 0...7 {
+            customCell.append(SettingsCellView(frame: .zero))
+        }
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isScrollEnabled = true
@@ -159,6 +139,9 @@ class SettingsView: UIView {
         customCell[2].addSubview(checkSwitch)
         checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
         
+        for color in colors {
+            checkBoxColors.append(ColorboxView(color: color))
+        }
         colorRowStackView = UIStackView(
             axis: .horizontal,
             distribution: .fillProportionally,
