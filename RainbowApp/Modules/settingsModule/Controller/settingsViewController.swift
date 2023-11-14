@@ -7,10 +7,9 @@
 
 import UIKit
 
-class settingsViewController: UIViewController {
+class SettingsViewController: UIViewController {
     //MARK: - Parameters
-    
-    
+    private let settingsView = SettingsView()
     
     
     //MARK: - Life cycle
@@ -21,4 +20,12 @@ class settingsViewController: UIViewController {
     
     //MARK: - Methods
     
+}
+
+extension SettingsViewController {
+    
+    private func setViews() {
+        view = settingsView
+
+    }
 }
