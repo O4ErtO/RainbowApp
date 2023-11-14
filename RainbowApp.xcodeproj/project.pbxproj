@@ -30,6 +30,7 @@
 		ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */; };
 		ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5252B0368A20016C3ED /* ColorboxView.swift */; };
 		ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5272B036E310016C3ED /* SettingsCellView.swift */; };
+		ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit + ext.swift"; sourceTree = "<group>"; };
 		ACC0F5252B0368A20016C3ED /* ColorboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorboxView.swift; sourceTree = "<group>"; };
 		ACC0F5272B036E310016C3ED /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0A162AB62AFD20FA00DF885A /* setingsModel.swift */,
+				ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */,
 				0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */,
 				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
+				ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */,
 				0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
 				0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */,
