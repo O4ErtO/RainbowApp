@@ -16,7 +16,7 @@ struct SettingsModel: Codable {
 }
     
 enum BgColor: String {
-    case black = "black"
+    case black
     case gray
     case white
 }
