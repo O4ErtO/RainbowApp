@@ -1,12 +1,8 @@
 //
-//  5Model.swift
 //  RainbowApp
-//
-//  Created by Dmitry on 09.11.2023.
 //
 
 import Foundation
-
 
 enum SettingsLabel {
     static let gameTime = "Время игры"
@@ -18,3 +14,5 @@ enum SettingsLabel {
     static let bg = "Цвет фона"
     static let position = "Расположение слова на экране"
 }
+
+

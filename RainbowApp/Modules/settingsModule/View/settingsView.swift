@@ -15,7 +15,7 @@ protocol SettingsViewDelegate: AnyObject {
 
 class SettingsView: UIView {
 
-    //MARK: - Parameters
+    // MARK: - Parameters
     weak var delegate: SettingsViewDelegate?
     
     private var mainStackView = UIStackView()
@@ -24,12 +24,10 @@ class SettingsView: UIView {
     private var colorSecondRowStackView = UIStackView()
     
     var customCell = [SettingsCellView]()
-    var colors: [UIColor] = [
-        .cyan, .green, .blue, .purple, .systemPink, .orange, .red, .systemTeal, .magenta, .systemIndigo, .black, .gray]
 
-    
-    var checkBoxColors = [ColorboxView]()
-       
+    var colors: [UIColor] = [
+        .cyan, .green, .blue, .purple, .systemPink, .orange, .red, .systemTeal, .magenta, .systemIndigo, .black, .gray
+    ]
     // cell 1
     private lazy var gameTimeLabel = UILabel(text: SettingsLabel.gameTime)
     let timeSlider = UISlider(maxValue: 60, minValue: 5)
@@ -46,7 +44,7 @@ class SettingsView: UIView {
     
     // cell 4
     private lazy var colorLabel = UILabel(text: SettingsLabel.letterColors)
-    
+    var checkBoxColors = [ColorboxView]()
     // cell 5
     private lazy var sizeLetterLabel = UILabel(text: SettingsLabel.letterSize)
     private var stepper = UIStepper(maxValue: 36, minValue: 12, value: 20)
@@ -215,18 +213,12 @@ class SettingsView: UIView {
             checkSwitch.centerYAnchor.constraint(equalTo: customCell[2].centerYAnchor),
             checkSwitch.trailingAnchor.constraint(equalTo: customCell[2].trailingAnchor, constant: -24),
         ])
-        
-
-       // Сell 4
-    
-        // MARK: Colors Stack
+        // Сell 4
         for button in checkBoxColors {
             button.widthAnchor.constraint(equalToConstant: 34).isActive = true
             button.heightAnchor.constraint(equalToConstant: 34).isActive = true
         }
-        
         NSLayoutConstraint.activate([
-            
             colorLabel.leadingAnchor.constraint(equalTo: customCell[3].leadingAnchor, constant: 16),
             colorLabel.heightAnchor.constraint(equalToConstant: 45),
             colorLabel.widthAnchor.constraint(equalToConstant: 55),
@@ -239,7 +231,6 @@ class SettingsView: UIView {
             colorSecondRowStackView.topAnchor.constraint(equalTo: colorRowStackView.bottomAnchor, constant: 8),
             colorSecondRowStackView.centerXAnchor.constraint(equalTo: colorRowStackView.centerXAnchor)
         ])
-        
         // сell 5
         NSLayoutConstraint.activate([
             sizeLetterLabel.leadingAnchor.constraint(equalTo: customCell[4].leadingAnchor, constant: 16),
@@ -252,9 +243,7 @@ class SettingsView: UIView {
             exSizeLabel.centerYAnchor.constraint(equalTo: customCell[4].centerYAnchor),
             exSizeLabel.trailingAnchor.constraint(equalTo: customCell[4].trailingAnchor, constant: -16)
         ])
-        
         // cell 6
-        
         NSLayoutConstraint.activate([
             bgSwitch.centerYAnchor.constraint(equalTo: customCell[5].centerYAnchor),
             bgSwitch.trailingAnchor.constraint(equalTo: customCell[5].trailingAnchor, constant: -24),

@@ -1,34 +1,26 @@
 //
-//  5ViewController.swift
-//  RainbowApp
-//
-//  Created by Dmitry on 09.11.2023.
+//  settingsViewController.swift
 //
 
 import UIKit
 
 class settingsViewController: UIViewController {
-    //MARK: - Parameters
+ 
+    // MARK: - Parameters
     private let settingsView = SettingsView()
-    
-    
-    //MARK: - Life cycle
+        
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
         setViews()
         settingsView.delegate = self
     }
-    
-    //MARK: - Methods
-    
 }
 
-extension settingsViewController {
-    
+extension settingsViewController {    
     private func setViews() {
         view = settingsView
-
     }
 }
 
