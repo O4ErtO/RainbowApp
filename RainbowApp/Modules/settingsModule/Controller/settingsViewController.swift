@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class settingsViewController: UIViewController {
     //MARK: - Parameters
     private let settingsView = SettingsView()
     
@@ -16,13 +16,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
+        setViews()
     }
     
     //MARK: - Methods
     
 }
 
-extension SettingsViewController {
+extension settingsViewController {
     
     private func setViews() {
         view = settingsView

@@ -16,14 +16,14 @@ class SettingsView: UIView {
     private var colorSecondRowStackView = UIStackView()
     
     var customCell = [
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero),
-       settingsView(frame: .zero)
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero),
+       SettingsCellView(frame: .zero)
        ]
     
     var checkBoxColors = [
@@ -86,7 +86,7 @@ class SettingsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
-       // setContraints()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -94,19 +94,11 @@ class SettingsView: UIView {
     }
     
     //MARK: - Methods
-    
-    func setUpView() {
-        scrollView = UIScrollView()
+    private func setUpView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isScrollEnabled = true
         addSubview(scrollView)
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
         
         mainStackView = UIStackView(
             axis: .vertical,
@@ -115,59 +107,19 @@ class SettingsView: UIView {
         )
         mainStackView.spacing = 24
         mainStackView.alignment = .center
-
         scrollView.addSubview(mainStackView)
+        
         customCell[0].addSubview(gameTimeLabel)
         customCell[0].addSubview(timeSlider)
         customCell[0].addSubview(timeSetLabel)
-        
-        NSLayoutConstraint.activate([
-            gameTimeLabel.leadingAnchor.constraint(equalTo: customCell[0].leadingAnchor, constant: 16),
-            gameTimeLabel.centerYAnchor.constraint(equalTo: customCell[0].centerYAnchor),
-            
-            timeSlider.leadingAnchor.constraint(equalTo: gameTimeLabel.trailingAnchor, constant: 16),
-            timeSlider.centerYAnchor.constraint(equalTo: customCell[0].centerYAnchor),
-            timeSlider.widthAnchor.constraint(equalToConstant: 150),
-            timeSetLabel.centerYAnchor.constraint(equalTo: timeSlider.centerYAnchor),
-            timeSetLabel.trailingAnchor.constraint(equalTo: customCell[0].trailingAnchor, constant: -16)
-        ])
-        
-    // cell 2
+     
         customCell[1].addSubview(speedLabel)
         customCell[1].addSubview(speedSlider)
         customCell[1].addSubview(speedSetLabel)
         
-        NSLayoutConstraint.activate([
-            speedLabel.leadingAnchor.constraint(equalTo: customCell[1].leadingAnchor, constant: 16),
-            speedLabel.widthAnchor.constraint(equalToConstant: 180),
-            speedLabel.topAnchor.constraint(equalTo: customCell[1].topAnchor,constant: 24),
-            speedLabel.centerYAnchor.constraint(equalTo: customCell[1].centerYAnchor),
-            
-            speedSlider.centerYAnchor.constraint(equalTo: customCell[1].centerYAnchor, constant: -12),
-            speedSlider.centerXAnchor.constraint(equalTo: customCell[1].centerXAnchor, constant: 24),
-            speedSlider.widthAnchor.constraint(equalToConstant: 120),
-            speedSlider.leadingAnchor.constraint(equalTo: speedLabel.trailingAnchor, constant: -36),
-            
-            speedSetLabel.trailingAnchor.constraint(equalTo: customCell[1].trailingAnchor, constant: -16),
-            speedSetLabel.centerYAnchor.constraint(equalTo: speedSlider.centerYAnchor)
-        ])
-        
-      // cell 3
         customCell[2].addSubview(isCheckLabel)
         customCell[2].addSubview(checkSwitch)
-
-        NSLayoutConstraint.activate([
-            isCheckLabel.leadingAnchor.constraint(equalTo: customCell[2].leadingAnchor, constant: 16),
-            isCheckLabel.centerYAnchor.constraint(equalTo: customCell[2].centerYAnchor),
-            isCheckLabel.widthAnchor.constraint(equalToConstant: 200),
-            checkSwitch.centerYAnchor.constraint(equalTo: customCell[2].centerYAnchor),
-            checkSwitch.trailingAnchor.constraint(equalTo: customCell[2].trailingAnchor, constant: -24),
-        ])
         
-        //checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
-      //Cell3 end
-        
-       // Сell 4
         colorRowStackView = UIStackView(
             axis: .horizontal,
             distribution: .fillProportionally,
@@ -179,12 +131,65 @@ class SettingsView: UIView {
             distribution: .fillProportionally,
             subViews: Array(checkBoxColors[6...11])
             )
-        
         colorSecondRowStackView.spacing = 8
+        
         customCell[3].addSubview(colorRowStackView)
         customCell[3].addSubview(colorSecondRowStackView)
         customCell[3].addSubview(colorLabel)
         
+        customCell[4].addSubview(sizeLetterLabel)
+        customCell[4].addSubview(stepper)
+        customCell[4].addSubview(exSizeLabel)
+        
+        customCell[5].addSubview(wordBgLabel)
+        customCell[5].addSubview(bgSwitch)
+        
+        customCell[6].addSubview(bgColorLabel)
+        customCell[6].addSubview(bgControl)
+        
+        customCell[7].addSubview(positionLabel)
+        customCell[7].addSubview(positionControl)
+    }
+    
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            gameTimeLabel.leadingAnchor.constraint(equalTo: customCell[0].leadingAnchor, constant: 16),
+            gameTimeLabel.centerYAnchor.constraint(equalTo: customCell[0].centerYAnchor),
+            
+            timeSlider.leadingAnchor.constraint(equalTo: gameTimeLabel.trailingAnchor, constant: 16),
+            timeSlider.centerYAnchor.constraint(equalTo: customCell[0].centerYAnchor),
+            timeSlider.widthAnchor.constraint(equalToConstant: 150),
+            timeSetLabel.centerYAnchor.constraint(equalTo: timeSlider.centerYAnchor),
+            timeSetLabel.trailingAnchor.constraint(equalTo: customCell[0].trailingAnchor, constant: -16),
+    // cell 2
+            speedLabel.leadingAnchor.constraint(equalTo: customCell[1].leadingAnchor, constant: 16),
+            speedLabel.widthAnchor.constraint(equalToConstant: 180),
+            speedLabel.topAnchor.constraint(equalTo: customCell[1].topAnchor,constant: 24),
+            speedLabel.centerYAnchor.constraint(equalTo: customCell[1].centerYAnchor),
+            
+            speedSlider.centerYAnchor.constraint(equalTo: customCell[1].centerYAnchor, constant: -12),
+            speedSlider.centerXAnchor.constraint(equalTo: customCell[1].centerXAnchor, constant: 24),
+            speedSlider.widthAnchor.constraint(equalToConstant: 120),
+            speedSlider.leadingAnchor.constraint(equalTo: speedLabel.trailingAnchor, constant: -36),
+            
+            speedSetLabel.trailingAnchor.constraint(equalTo: customCell[1].trailingAnchor, constant: -16),
+            speedSetLabel.centerYAnchor.constraint(equalTo: speedSlider.centerYAnchor),
+      // cell 3
+            isCheckLabel.leadingAnchor.constraint(equalTo: customCell[2].leadingAnchor, constant: 16),
+            isCheckLabel.centerYAnchor.constraint(equalTo: customCell[2].centerYAnchor),
+            isCheckLabel.widthAnchor.constraint(equalToConstant: 200),
+            checkSwitch.centerYAnchor.constraint(equalTo: customCell[2].centerYAnchor),
+            checkSwitch.trailingAnchor.constraint(equalTo: customCell[2].trailingAnchor, constant: -24),
+        ])
+        
+        //checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
+       // Сell 4
+    
         // MARK: Colors Stack
         for button in checkBoxColors {
             button.widthAnchor.constraint(equalToConstant: 34).isActive = true
@@ -208,9 +213,7 @@ class SettingsView: UIView {
         // cell 4 end
         
         // сell 5
-        customCell[4].addSubview(sizeLetterLabel)
-        customCell[4].addSubview(stepper)
-        customCell[4].addSubview(exSizeLabel)
+      
 
       //  stepper.addTarget(self, action: #selector(stepperAction), for: .valueChanged)
             
@@ -228,9 +231,6 @@ class SettingsView: UIView {
         
         // cell 6
         
-        customCell[5].addSubview(wordBgLabel)
-        customCell[5].addSubview(bgSwitch)
-        
         NSLayoutConstraint.activate([
             bgSwitch.centerYAnchor.constraint(equalTo: customCell[5].centerYAnchor),
             bgSwitch.trailingAnchor.constraint(equalTo: customCell[5].trailingAnchor, constant: -24),
@@ -244,8 +244,7 @@ class SettingsView: UIView {
         // cell 6 end
         
         // cell 7
-        customCell[6].addSubview(bgColorLabel)
-        customCell[6].addSubview(bgControl)
+
      //   bgControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
       
         NSLayoutConstraint.activate([
@@ -258,8 +257,6 @@ class SettingsView: UIView {
         // cell 7 end
         
         // cell 8
-        customCell[7].addSubview(positionLabel)
-        customCell[7].addSubview(positionControl)
    //     positionControl.addTarget(self, action: #selector(wordPosition), for: .valueChanged)
         
         NSLayoutConstraint.activate([
