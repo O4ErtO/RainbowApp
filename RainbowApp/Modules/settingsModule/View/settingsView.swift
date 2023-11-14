@@ -1,15 +1,23 @@
 //
-//  5View.swift
-//  RainbowApp
-//
-//  Created by Dmitry on 09.11.2023.
+//  settingsView.swift
 //
 
 import UIKit
 
+protocol SettingsViewDelegate: AnyObject {
+    func sliderChanged(sender: UISlider)
+    func switchAction(sender: UISwitch)
+    func didTapColorBox(sender: UITapGestureRecognizer)
+    func stepperAction(sender: UIStepper)
+    func changeBgColor(sender: UISegmentedControl)
+    func wordPosition(sender: UISegmentedControl)
+}
+
 class SettingsView: UIView {
 
     //MARK: - Parameters
+    weak var delegate: SettingsViewDelegate?
+    
     private var mainStackView = UIStackView()
     private var scrollView = UIScrollView()
     private var colorRowStackView = UIStackView()
@@ -34,7 +42,7 @@ class SettingsView: UIView {
         ColorboxView(color: .systemPink),
         ColorboxView(color: .orange),
         ColorboxView(color: .red),
-        ColorboxView(color: .yellow),
+        ColorboxView(color: .systemTeal),
         ColorboxView(color: .magenta),
         ColorboxView(color: .systemIndigo),
         ColorboxView(color: .black),
@@ -43,13 +51,13 @@ class SettingsView: UIView {
     
     // cell 1
     private lazy var gameTimeLabel = UILabel(text: "Время игры")
-    private let timeSlider = UISlider(maxValue: 60, minValue: 5)
-    private lazy var timeSetLabel = UILabel(text: String(format: "%.0f", timeSlider.value) + " c")
+    let timeSlider = UISlider(maxValue: 60, minValue: 5)
+    lazy var timeSetLabel = UILabel(text: String(format: "%.0f", timeSlider.value) + " c")
     
     // cell 2
     private lazy var speedLabel = UILabel(text: "Скорость смены заданий")
-    private let speedSlider = UISlider(maxValue: 15, minValue: 1)
-    private lazy var speedSetLabel = UILabel(text: String(format: "%.0f", speedSlider.value) + " c")
+    let speedSlider = UISlider(maxValue: 15, minValue: 1)
+    lazy var speedSetLabel = UILabel(text: String(format: "%.0f", speedSlider.value) + " c")
     
     // cell 3
     private lazy var isCheckLabel = UILabel(text: "Игра с проверкой заданий")
@@ -61,7 +69,7 @@ class SettingsView: UIView {
     // cell 5
     private lazy var sizeLetterLabel = UILabel(text: "Размер букв")
     private var stepper = UIStepper(maxValue: 36, minValue: 12, value: 20)
-    private lazy var exSizeLabel = UILabel(text: "Aa")
+    lazy var exSizeLabel = UILabel(text: "Aa")
     
     // cell 6
     private lazy var wordBgLabel = UILabel(text: "Подложка для букв")
@@ -85,6 +93,7 @@ class SettingsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .gray
         setUpView()
         setConstraints()
     }
@@ -94,43 +103,29 @@ class SettingsView: UIView {
     }
     
     //MARK: - Methods
-    //MARK: - Methods
     @objc func sliderChanged (_ sender: UISlider) {
-        if sender == timeSlider {
-            timeSetLabel.text = String(format: "%.0f", sender.value) + " c"
-        } else {
-            speedSetLabel.text = String(format: "%.0f", sender.value) + " c"
-        }
-    }
-    
-    @objc func stepperAction(sender: UIStepper) {
-        exSizeLabel.font = .systemFont(ofSize: sender.value)
+        delegate?.sliderChanged(sender: sender)
     }
     
     @objc func switchAction(sender: UISwitch) {
-        if sender.isOn {
-        } else {
-        }
+        delegate?.switchAction(sender: sender)
     }
     
-    @objc func changeColor(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-            case 1:
-                self.backgroundColor = UIColor.white
-            case 2:
-                self.backgroundColor = UIColor.black
-            default:
-                self.backgroundColor = UIColor.gray
-            }
+    @objc func stepperAction(sender: UIStepper) {
+        delegate?.stepperAction(sender: sender)
+    }
+    
+    @objc func changeBgColor(_ sender: UISegmentedControl) {
+        delegate?.changeBgColor(sender: sender)
     }
     
     @objc func wordPosition(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
+        delegate?.wordPosition(sender: sender)
+       
     }
     
-    @objc func didTapCheckbox(sender: UITapGestureRecognizer) {
-        let checkBox = sender.view as! ColorboxView
-            checkBox.toggle()
+    @objc func didTapColorbox(sender: UITapGestureRecognizer) {
+        delegate?.didTapColorBox(sender: sender)
     }
     
     
@@ -182,7 +177,7 @@ class SettingsView: UIView {
         customCell[3].addSubview(colorLabel)
         
         for button in checkBoxColors {
-            button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox)))
+            button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapColorbox)))
         }
         
         customCell[4].addSubview(sizeLetterLabel)
@@ -195,7 +190,7 @@ class SettingsView: UIView {
         
         customCell[6].addSubview(bgColorLabel)
         customCell[6].addSubview(bgControl)
-        bgControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
+        bgControl.addTarget(self, action: #selector(changeBgColor), for: .valueChanged)
         
         customCell[7].addSubview(positionLabel)
         customCell[7].addSubview(positionControl)
