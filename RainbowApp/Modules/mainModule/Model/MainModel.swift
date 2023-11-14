@@ -22,7 +22,6 @@ enum R {
         static let newGame = "Новая игра"
         static let next = "Продолжить"
         static let stistic = "Статистика"
-
     }
     
     enum Color {

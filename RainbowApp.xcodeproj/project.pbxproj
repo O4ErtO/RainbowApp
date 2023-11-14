@@ -27,6 +27,10 @@
 		0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */; };
 		0ACD9E972B02BF6F00FE9DBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */; };
 		0ACD9E9B2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */; };
+		ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */; };
+		ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5252B0368A20016C3ED /* ColorboxView.swift */; };
+		ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5272B036E310016C3ED /* SettingsCellView.swift */; };
+		ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 		0ACD9E9C2B02BF8800FE9DBA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit + ext.swift"; sourceTree = "<group>"; };
+		ACC0F5252B0368A20016C3ED /* ColorboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorboxView.swift; sourceTree = "<group>"; };
+		ACC0F5272B036E310016C3ED /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0A162AB62AFD20FA00DF885A /* setingsModel.swift */,
+				ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				0A162AB82AFD20FA00DF885A /* settingsView.swift */,
+				ACC0F5272B036E310016C3ED /* SettingsCellView.swift */,
+				ACC0F5252B0368A20016C3ED /* ColorboxView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +275,7 @@
 			children = (
 				0ACD9E922B02BF5200FE9DBA /* UIColor + ext.swift */,
 				0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */,
+				ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,17 +375,21 @@
 			files = (
 				0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */,
 				0ACD9E902B02BF3600FE9DBA /* SceneDelegate.swift in Sources */,
+				ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */,
 				0ACD9E8E2B02BF0700FE9DBA /* MainView.swift in Sources */,
 				0ACD9E942B02BF5200FE9DBA /* UIColor + ext.swift in Sources */,
 				0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */,
 				0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */,
 				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
+				ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */,
 				0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
 				0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */,
 				0A162AC92AFD20FA00DF885A /* gameView.swift in Sources */,
+				ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */,
 				0A162AD02AFD20FA00DF885A /* rulesViewControllerViewController.swift in Sources */,
 				0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */,
+				ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */,
 				0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */,
 				0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */,
 				0A162ACA2AFD20FA00DF885A /* settingsViewController.swift in Sources */,
