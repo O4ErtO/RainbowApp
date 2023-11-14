@@ -22,3 +22,4 @@ class settingsViewController: UIViewController {
     //MARK: - Methods
     
 }
+
