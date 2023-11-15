@@ -37,6 +37,8 @@
 		ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5252B0368A20016C3ED /* ColorboxView.swift */; };
 		ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5272B036E310016C3ED /* SettingsCellView.swift */; };
 		ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */; };
+		ACC0F5522B0568FA0016C3ED /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5512B0568FA0016C3ED /* GameData.swift */; };
+		ACC0F5542B0569450016C3ED /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5532B0569450016C3ED /* ResultsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		ACC0F5252B0368A20016C3ED /* ColorboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorboxView.swift; sourceTree = "<group>"; };
 		ACC0F5272B036E310016C3ED /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		ACC0F5512B0568FA0016C3ED /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		ACC0F5532B0569450016C3ED /* ResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +310,8 @@
 			isa = PBXGroup;
 			children = (
 				0ACD9E892B02BF0700FE9DBA /* MainModel.swift */,
+				ACC0F5512B0568FA0016C3ED /* GameData.swift */,
+				ACC0F5532B0569450016C3ED /* ResultsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,10 +436,12 @@
 				95623C192B0403ED00D244A5 /* Button.swift in Sources */,
 				0ACD9E8E2B02BF0700FE9DBA /* MainView.swift in Sources */,
 				0ACD9E942B02BF5200FE9DBA /* UIColor + ext.swift in Sources */,
+				ACC0F5522B0568FA0016C3ED /* GameData.swift in Sources */,
 				0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */,
 				0A162AC72AFD20FA00DF885A /* GameViewController.swift in Sources */,
 				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
 				ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */,
+				ACC0F5542B0569450016C3ED /* ResultsModel.swift in Sources */,
 				0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */,
 				0A1DF5182B04EAC000A40FC1 /* ResultView.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
