@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162A882AFD19AD00DF885A /* AppDelegate.swift */; };
-		0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAD2AFD20FA00DF885A /* secondViewController.swift */; };
-		0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAF2AFD20FA00DF885A /* gameModel.swift */; };
-		0A162AC92AFD20FA00DF885A /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB12AFD20FA00DF885A /* gameView.swift */; };
+		0A162AC72AFD20FA00DF885A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAD2AFD20FA00DF885A /* GameViewController.swift */; };
+		0A162AC82AFD20FA00DF885A /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AAF2AFD20FA00DF885A /* GameModel.swift */; };
+		0A162AC92AFD20FA00DF885A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB12AFD20FA00DF885A /* GameView.swift */; };
 		0A162ACA2AFD20FA00DF885A /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB42AFD20FA00DF885A /* settingsViewController.swift */; };
 		0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB62AFD20FA00DF885A /* setingsModel.swift */; };
 		0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AB82AFD20FA00DF885A /* settingsView.swift */; };
@@ -27,6 +27,9 @@
 		0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */; };
 		0ACD9E972B02BF6F00FE9DBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */; };
 		0ACD9E9B2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */; };
+		95623C172B03F42700D244A5 /* NavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C162B03F42700D244A5 /* NavBarButton.swift */; };
+		95623C192B0403ED00D244A5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C182B0403ED00D244A5 /* Button.swift */; };
+		95623C1B2B042AEE00D244A5 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */; };
 		ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */; };
 		ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5252B0368A20016C3ED /* ColorboxView.swift */; };
 		ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5272B036E310016C3ED /* SettingsCellView.swift */; };
@@ -36,9 +39,9 @@
 /* Begin PBXFileReference section */
 		0A162A852AFD19AD00DF885A /* RainbowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A162A882AFD19AD00DF885A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A162AAD2AFD20FA00DF885A /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
-		0A162AAF2AFD20FA00DF885A /* gameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameModel.swift; sourceTree = "<group>"; };
-		0A162AB12AFD20FA00DF885A /* gameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
+		0A162AAD2AFD20FA00DF885A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0A162AAF2AFD20FA00DF885A /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		0A162AB12AFD20FA00DF885A /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0A162AB42AFD20FA00DF885A /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		0A162AB62AFD20FA00DF885A /* setingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setingsModel.swift; sourceTree = "<group>"; };
 		0A162AB82AFD20FA00DF885A /* settingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,9 @@
 		0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 		0ACD9E9C2B02BF8800FE9DBA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95623C162B03F42700D244A5 /* NavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarButton.swift; sourceTree = "<group>"; };
+		95623C182B0403ED00D244A5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit + ext.swift"; sourceTree = "<group>"; };
 		ACC0F5252B0368A20016C3ED /* ColorboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorboxView.swift; sourceTree = "<group>"; };
 		ACC0F5272B036E310016C3ED /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
@@ -144,7 +150,7 @@
 		0A162AAC2AFD20FA00DF885A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AAD2AFD20FA00DF885A /* secondViewController.swift */,
+				0A162AAD2AFD20FA00DF885A /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,7 +158,7 @@
 		0A162AAE2AFD20FA00DF885A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AAF2AFD20FA00DF885A /* gameModel.swift */,
+				0A162AAF2AFD20FA00DF885A /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,7 +166,8 @@
 		0A162AB02AFD20FA00DF885A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AB12AFD20FA00DF885A /* gameView.swift */,
+				0A162AB12AFD20FA00DF885A /* GameView.swift */,
+				95623C182B0403ED00D244A5 /* Button.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACD9E8B2B02BF0700FE9DBA /* MainView.swift */,
+				95623C162B03F42700D244A5 /* NavBarButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 				0ACD9E922B02BF5200FE9DBA /* UIColor + ext.swift */,
 				0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */,
 				ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */,
+				95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,19 +385,22 @@
 				0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */,
 				0ACD9E902B02BF3600FE9DBA /* SceneDelegate.swift in Sources */,
 				ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */,
+				95623C192B0403ED00D244A5 /* Button.swift in Sources */,
 				0ACD9E8E2B02BF0700FE9DBA /* MainView.swift in Sources */,
 				0ACD9E942B02BF5200FE9DBA /* UIColor + ext.swift in Sources */,
 				0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */,
-				0A162AC72AFD20FA00DF885A /* secondViewController.swift in Sources */,
+				0A162AC72AFD20FA00DF885A /* GameViewController.swift in Sources */,
 				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
 				ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */,
 				0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
-				0A162AC82AFD20FA00DF885A /* gameModel.swift in Sources */,
-				0A162AC92AFD20FA00DF885A /* gameView.swift in Sources */,
+				0A162AC82AFD20FA00DF885A /* GameModel.swift in Sources */,
+				0A162AC92AFD20FA00DF885A /* GameView.swift in Sources */,
 				ACC0F5282B036E310016C3ED /* SettingsCellView.swift in Sources */,
 				0A162AD02AFD20FA00DF885A /* rulesViewControllerViewController.swift in Sources */,
 				0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */,
+				95623C172B03F42700D244A5 /* NavBarButton.swift in Sources */,
+				95623C1B2B042AEE00D244A5 /* UIView + Ext.swift in Sources */,
 				ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */,
 				0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */,
 				0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */,
