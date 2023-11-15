@@ -18,6 +18,9 @@
 		0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC42AFD20FA00DF885A /* rulesModel.swift */; };
 		0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A162AC62AFD20FA00DF885A /* rulesView.swift */; };
 		0A162AD62AFD239500DF885A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A162AD52AFD239500DF885A /* README.md */; };
+		0A1DF5162B04EAB300A40FC1 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DF5152B04EAB300A40FC1 /* ResultCell.swift */; };
+		0A1DF5182B04EAC000A40FC1 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DF5172B04EAC000A40FC1 /* ResultView.swift */; };
+		0A1DF51A2B04EACC00A40FC1 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DF5192B04EACC00A40FC1 /* ResultsViewController.swift */; };
 		0ACD9E7F2B01F31B00FE9DBA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACD9E7E2B01F31B00FE9DBA /* SnapKit */; };
 		0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD9E872B02BF0700FE9DBA /* MainViewController.swift */; };
 		0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD9E892B02BF0700FE9DBA /* MainModel.swift */; };
@@ -49,6 +52,9 @@
 		0A162AC42AFD20FA00DF885A /* rulesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rulesModel.swift; sourceTree = "<group>"; };
 		0A162AC62AFD20FA00DF885A /* rulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rulesView.swift; sourceTree = "<group>"; };
 		0A162AD52AFD239500DF885A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0A1DF5152B04EAB300A40FC1 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		0A1DF5172B04EAC000A40FC1 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		0A1DF5192B04EACC00A40FC1 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0ACD9E872B02BF0700FE9DBA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0ACD9E892B02BF0700FE9DBA /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		0ACD9E8B2B02BF0700FE9DBA /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 		0A162A9D2AFD1A6900DF885A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0A1DF5112B04EA7800A40FC1 /* ResultModule */,
 				0ACD9E852B02BF0700FE9DBA /* mainModule */,
 				0A162AAB2AFD20FA00DF885A /* gameModule */,
 				0A162AC02AFD20FA00DF885A /* rulesModule */,
@@ -241,6 +248,40 @@
 				0A162AC62AFD20FA00DF885A /* rulesView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0A1DF5112B04EA7800A40FC1 /* ResultModule */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DF5132B04EA9600A40FC1 /* View */,
+				0A1DF5122B04EA8600A40FC1 /* Controller */,
+			);
+			path = ResultModule;
+			sourceTree = "<group>";
+		};
+		0A1DF5122B04EA8600A40FC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DF5192B04EACC00A40FC1 /* ResultsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0A1DF5132B04EA9600A40FC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DF5172B04EAC000A40FC1 /* ResultView.swift */,
+				0A1DF5142B04EAA200A40FC1 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A1DF5142B04EAA200A40FC1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DF5152B04EAB300A40FC1 /* ResultCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0ACD9E852B02BF0700FE9DBA /* mainModule */ = {
@@ -384,6 +425,7 @@
 			files = (
 				0A162ACC2AFD20FA00DF885A /* settingsView.swift in Sources */,
 				0ACD9E902B02BF3600FE9DBA /* SceneDelegate.swift in Sources */,
+				0A1DF5162B04EAB300A40FC1 /* ResultCell.swift in Sources */,
 				ACC0F5262B0368A20016C3ED /* ColorboxView.swift in Sources */,
 				95623C192B0403ED00D244A5 /* Button.swift in Sources */,
 				0ACD9E8E2B02BF0700FE9DBA /* MainView.swift in Sources */,
@@ -393,6 +435,7 @@
 				0A162ACB2AFD20FA00DF885A /* setingsModel.swift in Sources */,
 				ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */,
 				0ACD9E8C2B02BF0700FE9DBA /* MainViewController.swift in Sources */,
+				0A1DF5182B04EAC000A40FC1 /* ResultView.swift in Sources */,
 				0A162A892AFD19AD00DF885A /* AppDelegate.swift in Sources */,
 				0A162AC82AFD20FA00DF885A /* GameModel.swift in Sources */,
 				0A162AC92AFD20FA00DF885A /* GameView.swift in Sources */,
@@ -403,6 +446,7 @@
 				95623C1B2B042AEE00D244A5 /* UIView + Ext.swift in Sources */,
 				ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */,
 				0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */,
+				0A1DF51A2B04EACC00A40FC1 /* ResultsViewController.swift in Sources */,
 				0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */,
 				0A162ACA2AFD20FA00DF885A /* settingsViewController.swift in Sources */,
 			);
