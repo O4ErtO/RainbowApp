@@ -6,6 +6,7 @@
 //
 import UIKit
 
+struct GameModel: Codable {}
 
 enum Image {
     static let dot = UIImage(named: "dot")
