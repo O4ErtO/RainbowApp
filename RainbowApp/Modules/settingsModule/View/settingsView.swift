@@ -17,6 +17,7 @@ class SettingsView: UIView {
 
     // MARK: - Parameters
     weak var delegate: SettingsViewDelegate?
+    var selectedColors:[Bool]?
     
     private lazy var mainStackView: UIStackView = {
         let element = UIStackView(
@@ -46,40 +47,41 @@ class SettingsView: UIView {
         .cyan, .green, .blue, .purple, .systemPink, .orange, .red, .systemTeal, .magenta, .systemIndigo, .black, .gray
     ]
     // cell 1
-    private lazy var gameTimeLabel = UILabel(text: SettingsLabel.gameTime)
+    private let gameTimeLabel = UILabel(text: SettingsLabel.gameTime)
     let timeSlider = UISlider(maxValue: 60, minValue: 5)
     lazy var timeSetLabel = UILabel(text: String(format: "%.0f", timeSlider.value) + " c")
     
     // cell 2
-    private lazy var speedLabel = UILabel(text: SettingsLabel.speed)
+    private let speedLabel = UILabel(text: SettingsLabel.speed)
     let speedSlider = UISlider(maxValue: 15, minValue: 1)
     lazy var speedSetLabel = UILabel(text: String(format: "%.0f", speedSlider.value) + " c")
     
     // cell 3
-    private lazy var isCheckLabel = UILabel(text: SettingsLabel.check)
+    private let isCheckLabel = UILabel(text: SettingsLabel.check)
     let checkSwitch = UISwitch(isOn: true)
     
     // cell 4
-    private lazy var colorLabel = UILabel(text: SettingsLabel.letterColors)
+    private let colorLabel = UILabel(text: SettingsLabel.letterColors)
     var checkBoxColors = [ColorboxView]()
+    
     // cell 5
-    private lazy var sizeLetterLabel = UILabel(text: SettingsLabel.letterSize)
-    private var stepper = UIStepper(maxValue: 36, minValue: 12, value: 20)
-    lazy var exSizeLabel = UILabel(text: "Aa")
+    private let sizeLetterLabel = UILabel(text: SettingsLabel.letterSize)
+    let stepper = UIStepper(minValue: 12, maxValue: 36, value: 20)
+    let exSizeLabel = UILabel(text: "Aa")
     
     // cell 6
-    private lazy var wordBgLabel = UILabel(text: SettingsLabel.letterBg)
+    private let wordBgLabel = UILabel(text: SettingsLabel.letterBg)
     let bgSwitch = UISwitch(isOn: false)
-   
+    
     // cell7
-    private lazy var bgColorLabel = UILabel(text: SettingsLabel.bg)
-    private lazy var bgControl = UISegmentedControl(
+    private let bgColorLabel = UILabel(text: SettingsLabel.bg)
+    let bgControl = UISegmentedControl(
         items: ["Серый", "Белый", "Черный"],
         selectedIndex: 0
     )
     // cell 8
-    private lazy var positionLabel = UILabel(text: SettingsLabel.position)
-    private lazy var positionControl = UISegmentedControl(
+    private let positionLabel = UILabel(text: SettingsLabel.position)
+    let positionControl = UISegmentedControl(
         items: ["Случайное", "По центру"],
         selectedIndex: 0
     )
@@ -146,6 +148,7 @@ class SettingsView: UIView {
         for color in colors {
             checkBoxColors.append(ColorboxView(color: color))
         }
+        
         colorRowStackView = UIStackView(
             axis: .horizontal,
             distribution: .fillProportionally,
@@ -201,7 +204,6 @@ class SettingsView: UIView {
             timeSetLabel.trailingAnchor.constraint(equalTo: customCell[0].trailingAnchor, constant: -16),
     // cell 2
             speedLabel.leadingAnchor.constraint(equalTo: customCell[1].leadingAnchor, constant: 16),
-            speedLabel.widthAnchor.constraint(equalToConstant: 180),
             speedLabel.topAnchor.constraint(equalTo: customCell[1].topAnchor,constant: 24),
             speedLabel.centerYAnchor.constraint(equalTo: customCell[1].centerYAnchor),
             
@@ -226,7 +228,6 @@ class SettingsView: UIView {
         }
         NSLayoutConstraint.activate([
             colorLabel.leadingAnchor.constraint(equalTo: customCell[3].leadingAnchor, constant: 16),
-            colorLabel.heightAnchor.constraint(equalToConstant: 45),
             colorLabel.widthAnchor.constraint(equalToConstant: 55),
             colorLabel.topAnchor.constraint(equalTo: customCell[3].topAnchor,constant: 24),
             colorLabel.centerYAnchor.constraint(equalTo: customCell[3].centerYAnchor),
@@ -255,7 +256,6 @@ class SettingsView: UIView {
             bgSwitch.trailingAnchor.constraint(equalTo: customCell[5].trailingAnchor, constant: -24),
             
             wordBgLabel.leadingAnchor.constraint(equalTo: customCell[5].leadingAnchor, constant: 16),
-            wordBgLabel.heightAnchor.constraint(equalToConstant: 45),
             wordBgLabel.widthAnchor.constraint(equalToConstant: 230),
             wordBgLabel.topAnchor.constraint(equalTo: customCell[5].topAnchor,constant: 24),
             wordBgLabel.centerYAnchor.constraint(equalTo: customCell[5].centerYAnchor),
@@ -264,7 +264,6 @@ class SettingsView: UIView {
         NSLayoutConstraint.activate([
             bgColorLabel.topAnchor.constraint(equalTo: customCell[6].topAnchor, constant: 24),
             bgColorLabel.leadingAnchor.constraint(equalTo: customCell[6].leadingAnchor, constant: 16),
-            
             bgControl.bottomAnchor.constraint(equalTo: customCell[6].bottomAnchor, constant: -16),
             bgControl.leadingAnchor.constraint(equalTo: customCell[6].leadingAnchor, constant: 16),
             bgControl.trailingAnchor.constraint(equalTo: customCell[6].trailingAnchor, constant: -16)])
@@ -272,7 +271,6 @@ class SettingsView: UIView {
         NSLayoutConstraint.activate([
             positionLabel.topAnchor.constraint(equalTo: customCell[7].topAnchor, constant: 24),
             positionLabel.leadingAnchor.constraint(equalTo: customCell[7].leadingAnchor, constant: 16),
-            
             positionControl.bottomAnchor.constraint(equalTo: customCell[7].bottomAnchor, constant: -16),
             positionControl.leadingAnchor.constraint(equalTo: customCell[7].leadingAnchor, constant: 16),
             positionControl.trailingAnchor.constraint(equalTo: customCell[7].trailingAnchor, constant: -16)])

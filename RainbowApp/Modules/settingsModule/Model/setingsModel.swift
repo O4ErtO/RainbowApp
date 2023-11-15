@@ -5,23 +5,17 @@
 import UIKit
 
 struct SettingsModel: Codable {
-    var gameTime: Int
-    var changeTime: Int
-    var isCountTask: Bool
-    var selectedColors: [Bool]
-    var textSize: Int
-    var isTextBackground: Bool
-    var backgroundColor: String
-    var wordPosition: String
-}
-    
-enum BgColor: String {
-    case black
-    case gray
-    case white
+    var gameTime: Int = 11
+    var changeTime: Int = 2
+    var isCountTask: Bool = false
+    var selectedColors: [Bool] = Array(repeating: true, count: 12)
+    var textSize: CGFloat = 24.0
+    var isTextBackground: Bool = true
+    var backgroundColor: String = "#00000033"
+    var wordPosition: WordPosition = .random
 }
 
-enum WordPosition {
+enum WordPosition: Int, Codable {
     case random
     case center
 }
@@ -36,5 +30,3 @@ enum SettingsLabel {
     static let bg = "Цвет фона"
     static let position = "Расположение слова на экране"
 }
-
-

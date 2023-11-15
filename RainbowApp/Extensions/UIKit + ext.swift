@@ -53,10 +53,11 @@ extension UISegmentedControl {
 }
 
 extension UIStepper {
-    convenience init(maxValue: Int, minValue: Int, value: Double) {
+    convenience init(minValue: Double, maxValue: Double, value: Double) {
         self.init()
-        self.minimumValue = minimumValue
-        self.maximumValue = maximumValue
+        self.value = value
+        self.minimumValue = minValue
+        self.maximumValue = maxValue
         self.value = value
         self.translatesAutoresizingMaskIntoConstraints = false
     }

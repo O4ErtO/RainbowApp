@@ -6,7 +6,11 @@ import UIKit
 
 class ColorboxView: UIView {
     
-    var isChecked = false
+    var isChecked = false {
+        didSet {
+            imageView.isHidden = !isChecked
+        }
+    }
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -39,6 +43,5 @@ class ColorboxView: UIView {
     
     func toggle() {
         self.isChecked = !isChecked
-        self.imageView.isHidden = !isChecked
     }
 }
