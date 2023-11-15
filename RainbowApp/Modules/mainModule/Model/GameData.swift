@@ -4,7 +4,6 @@
 
 import UIKit
 
-// Singleton 1 (global namespace)
 let gameData = GameData()
 
 class GameData {
@@ -13,16 +12,20 @@ class GameData {
     lazy var results =  UserDefaultService.shared.getData(forKey: "Results") ?? ResultsModel()
     lazy var gameModel = UserDefaultService.shared.getData(forKey: "Game")  ?? GameModel()
     
-    // functions
+    // Methods
     func saveSettings () {
         UserDefaultService.shared.saveData(type: settingsModel, forKey: "Settings")
     }
     
-    private func saveResults () {
+    func saveResults () {
         UserDefaultService.shared.saveData(type: settingsModel, forKey: "Results")
     }
     
-    private func saveGameModel () {
+    func saveGameModel () {
         UserDefaultService.shared.saveData(type: settingsModel, forKey: "Game")
+    }
+    
+    func deleteResults() {
+        UserDefaultService.shared.removeData(forKey: "Results")
     }
 }
