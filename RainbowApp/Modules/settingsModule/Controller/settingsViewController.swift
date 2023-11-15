@@ -60,3 +60,4 @@ extension settingsViewController: SettingsViewDelegate {
         print(sender.selectedSegmentIndex)
     }
 }
+

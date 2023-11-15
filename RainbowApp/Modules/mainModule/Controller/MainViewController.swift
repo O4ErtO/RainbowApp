@@ -53,7 +53,7 @@ extension MainViewController: MainViewDelegate {
     }
     
     func didTapQuestionButton() {
-        let vc = rulesViewController()
+        let vc = RulesViewController()
         navigationController?.pushViewController(vc, animated: true)
         
     }
