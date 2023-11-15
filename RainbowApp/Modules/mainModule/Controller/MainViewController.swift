@@ -41,9 +41,8 @@ extension MainViewController: MainViewDelegate {
     }
     
     func didTapStatiticButton() {
-        // let vc = result()
-        // navigationController?.pushViewController(vc, animated: true)
-        print("result")
+         let vc = ResultsViewController()
+         navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapConfigButton() {
