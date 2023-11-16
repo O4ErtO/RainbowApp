@@ -106,7 +106,6 @@ extension GameView {
         }
         UIView.animate(withDuration: 0.5) {
             self.firstButton.backgroundColor = self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-           
             self.thirdButton.backgroundColor = self.colorsArray[safe: 2] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
             self.fourButton.backgroundColor = self.colorsArray[safe: 3] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
             self.fiveButton.backgroundColor = self.colorsArray[safe: 4] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
@@ -124,29 +123,24 @@ extension GameView {
     }
     
     private func setContraints() {
-        UIView.animate(withDuration: 0.1) {
-            self.firstButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.secondButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.thirdButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.fourButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.fiveButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-        }
+
+        
         
         NSLayoutConstraint.activate([
             firstButton.topAnchor.constraint(equalTo: topAnchor, constant: 130),
-           // firstButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(Int.random(in: 20...170))),
+            firstButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(Int.random(in: 20...170))),
             
             secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: heightAnch),
-           // secondButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
+            secondButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
             
             thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: heightAnch),
-          //  thirdButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
+            thirdButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
             
             fourButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: heightAnch),
-           // fourButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
+            fourButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
             
             fiveButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor, constant: heightAnch),
-            //fiveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
+            fiveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
             
             speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
             speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),

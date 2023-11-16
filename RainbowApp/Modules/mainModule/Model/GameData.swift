@@ -9,7 +9,7 @@ let gameData = GameData()
 class GameData {
 
     lazy var settingsModel =  UserDefaultService.shared.getData(forKey: "Settings") ?? SettingsModel()
-    lazy var results =  UserDefaultService.shared.getData(forKey: "Results") ?? ResultsModel()
+    lazy var results =  UserDefaultService.shared.getData(forKey: "Rounds") ?? ResultsModel()
     lazy var gameModel = UserDefaultService.shared.getData(forKey: "Game")  ?? GameModel()
     
     let allColors: [UIColor] = [
@@ -28,7 +28,7 @@ class GameData {
     }
     
     func saveResults () {
-        UserDefaultService.shared.saveData(type: settingsModel, forKey: "Results")
+        UserDefaultService.shared.saveData(type: results, forKey: "Rounds")
     }
     
     func saveGameModel () {
@@ -37,6 +37,7 @@ class GameData {
     
     func deleteResults() {
         UserDefaultService.shared.removeData(forKey: "Results")
+        results = ResultsModel()
     }
     
     func updateColors() {
@@ -44,5 +45,10 @@ class GameData {
         if selectedColors.isEmpty {
             selectedColors.append(.systemPink)
         }
+    }
+    
+    func addResult(_ round: Round) {
+        results.results.append(round)
+        saveResults()
     }
 }

@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     private var speed: Int = 1 //всего до 5х
     var changeTime = gameData.settingsModel.changeTime
     var count = 0
+    var numberOfQuestions = 0
     
     private var titleTimer: String {
         switch secondsRemaining {
@@ -36,6 +37,7 @@ class GameViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Количество игр в начале: \(gameData.results.results.count)")
         gameData.updateColors()
         setViews()
         addNavBarButton()
@@ -62,6 +64,9 @@ class GameViewController: UIViewController {
             title = "Время вышло"
             print("Вы набрали \(counter) балла")
             buttonRight.isEnabled = false
+            gameData.addResult(Round(time: Double(gameData.settingsModel.gameTime), guessed: count, numberOfQuestions: numberOfQuestions, speed: speed))
+            gameData.saveResults()
+            print("Количество игр: \(gameData.results.results.count)")
             navigationController?.pushViewController(ResultsViewController(), animated: true)
         default:
             break
