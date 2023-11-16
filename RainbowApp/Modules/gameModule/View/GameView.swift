@@ -16,31 +16,31 @@ class GameView: UIView {
     lazy var fourButton = Button(color: colorsArray[3], title: titlesArray[3], titleColor: .white)
     lazy var fiveButton = Button(color: colorsArray[4], title: titlesArray[4], titleColor: .white)
     
+    private let heightAnch: CGFloat = 100
+    private let colorsArray: [UIColor]
+    private let titlesArray: [String]
+    private let titleSpeedButton: String
+    private var leadingAnchorArray: [CGFloat] = [20, 70, 120, 170]// изменить входящие данные
+    
     lazy var speedbutton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 25
         button.backgroundColor = .red
-        button.setTitle(titleButton, for: .normal)
+        button.setTitle(titleSpeedButton, for: .normal)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
-    
-    private let heightAnch: CGFloat = 100
-    private let colorsArray: [UIColor]
-    private let titlesArray: [String]
-    private let titleButton: String
-    
-    var leadingAnchorArray: [CGFloat] = [20, 70, 120, 170]
     
     //MARK: - Init
     init(colorsArray: [UIColor] = [.black, .orange, .blue, .red, .brown].shuffled(), titlesArray: [String] = ["красный","синий","зеленый","желтый","фиолетовый"].shuffled(), titleButton: String) {
         self.titlesArray = titlesArray
         self.colorsArray = colorsArray
-        self.titleButton = titleButton
+        self.titleSpeedButton = titleButton
         super.init(frame: .zero)
         setupView()
         setContraints()
+
     }
     
     required init?(coder: NSCoder) {
