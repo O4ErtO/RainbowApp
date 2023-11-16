@@ -9,13 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     //MARK: - Parameters
-    private lazy var gameView = GameView(titleButton: "\(Int(speed)) X")// есть init куда можно добавить [UIColor] и [String]. делать поментку .shuffled
+    private lazy var gameView =  GameView(colorsArray: gameData.selectedColors.shuffled(), titleButton:  "\(Int(speed)) X")
     private let buttonLeft = NavBarButton(with: .left)
     private let buttonRight = NavBarButton(with: .right)
     private var counter = 0
     private var timer: Timer?
     private var secondsRemaining = gameData.settingsModel.gameTime
     private var speed: Double = Double(gameData.settingsModel.changeTime) //всего до 5х
+    var count = 0
     
     private var titleTimer: String {
         switch secondsRemaining {
@@ -34,6 +35,7 @@ class GameViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameData.updateColors()
         setViews()
         addNavBarButton()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -42,16 +44,18 @@ class GameViewController: UIViewController {
     //MARK: - Methods
     
     @objc func updateTimer() {
+        count += 1
+        if count % Int(speed) == 0 {
+            gameView.changeButtons()
+        }
+        secondsRemaining -= 1
         switch secondsRemaining {
         case 60:
             title = "01:00"
-            secondsRemaining -= 1
         case 10...59:
             title = "00:\(secondsRemaining)"
-            secondsRemaining -= 1
         case 1...9:
             title = "00:0\(secondsRemaining)"
-            secondsRemaining -= 1
         case 0:
             timer?.invalidate()
             title = "Время вышло"

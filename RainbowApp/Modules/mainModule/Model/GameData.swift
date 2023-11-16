@@ -39,7 +39,10 @@ class GameData {
         UserDefaultService.shared.removeData(forKey: "Results")
     }
     
-    private func updateColors() {
+    func updateColors() {
         selectedColors = allColors.elements(at: gameData.settingsModel.selectedColors.whereElements(true))
+        if selectedColors.isEmpty {
+            selectedColors.append(.systemPink)
+        }
     }
 }
