@@ -177,6 +177,7 @@ class SettingsView: UIView {
         
         customCell[5].addSubview(wordBgLabel)
         customCell[5].addSubview(bgSwitch)
+        bgSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         
         customCell[6].addSubview(bgColorLabel)
         customCell[6].addSubview(bgControl)
