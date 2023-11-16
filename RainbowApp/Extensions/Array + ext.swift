@@ -6,8 +6,8 @@ import Foundation
 
 extension Array where Element: Equatable {
 
-    func whereElements(_ value :  Element) -> [Int] {
-        return self.indices.filter { self[$0] == value}
+    func whereElements(_ value: Element) -> [Int] {
+        return self.indices.filter { self[$0] == value }
     }
 }
 
