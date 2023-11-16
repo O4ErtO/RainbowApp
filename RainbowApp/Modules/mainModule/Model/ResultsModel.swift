@@ -9,7 +9,7 @@ struct ResultsModel: Codable {
 }
 
 struct Round: Codable {
-    var time: Double
+    var time: Int
     var guessed: Int
     var numberOfQuestions: Int
     var speed: Int

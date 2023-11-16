@@ -5,7 +5,12 @@
 
 import UIKit
 
+protocol SpeedButtonDelegate: AnyObject {
+    func speedTapped()
+}
+
 class GameView: UIView {
+    weak var delegate: SpeedButtonDelegate?
     
     //MARK: - Parameters
     lazy var firstButton = Button(
@@ -59,6 +64,10 @@ class GameView: UIView {
     }
 
     //MARK: - Methods
+    @objc private func didSpeedTapped() {
+        delegate?.speedTapped()
+    }
+    
     private func randomConts () -> CGFloat {
         return CGFloat(Int.random(in: 20...170))
     }
@@ -120,12 +129,11 @@ extension GameView {
         addSubview(fourButton)
         addSubview(fiveButton)
         addSubview(speedbutton)
+        speedbutton.addTarget(self, action: #selector(didSpeedTapped), for: .touchUpInside)
     }
     
     private func setContraints() {
 
-        
-        
         NSLayoutConstraint.activate([
             firstButton.topAnchor.constraint(equalTo: topAnchor, constant: 130),
             firstButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(Int.random(in: 20...170))),
