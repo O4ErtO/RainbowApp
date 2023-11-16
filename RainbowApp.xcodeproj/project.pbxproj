@@ -39,6 +39,7 @@
 		ACC0F52A2B03A4640016C3ED /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */; };
 		ACC0F5522B0568FA0016C3ED /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5512B0568FA0016C3ED /* GameData.swift */; };
 		ACC0F5542B0569450016C3ED /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5532B0569450016C3ED /* ResultsModel.swift */; };
+		ACC0F5582B0650B60016C3ED /* Array + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC0F5572B0650B50016C3ED /* Array + ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		ACC0F5292B03A4640016C3ED /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		ACC0F5512B0568FA0016C3ED /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		ACC0F5532B0569450016C3ED /* ResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
+		ACC0F5572B0650B50016C3ED /* Array + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACD9E922B02BF5200FE9DBA /* UIColor + ext.swift */,
+				ACC0F5572B0650B50016C3ED /* Array + ext.swift */,
 				0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */,
 				ACC0F5232B0365F30016C3ED /* UIKit + ext.swift */,
 				95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */,
@@ -451,6 +454,7 @@
 				0A162AD02AFD20FA00DF885A /* rulesViewControllerViewController.swift in Sources */,
 				0A162AD22AFD20FA00DF885A /* rulesView.swift in Sources */,
 				95623C172B03F42700D244A5 /* NavBarButton.swift in Sources */,
+				ACC0F5582B0650B60016C3ED /* Array + ext.swift in Sources */,
 				95623C1B2B042AEE00D244A5 /* UIView + Ext.swift in Sources */,
 				ACC0F5242B0365F30016C3ED /* UIKit + ext.swift in Sources */,
 				0A162AD12AFD20FA00DF885A /* rulesModel.swift in Sources */,

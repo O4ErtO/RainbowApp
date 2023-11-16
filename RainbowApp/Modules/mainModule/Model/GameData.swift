@@ -12,9 +12,19 @@ class GameData {
     lazy var results =  UserDefaultService.shared.getData(forKey: "Results") ?? ResultsModel()
     lazy var gameModel = UserDefaultService.shared.getData(forKey: "Game")  ?? GameModel()
     
+    let allColors: [UIColor] = [
+        .cyan, .green, .blue, .purple, .systemPink, .orange, .red,
+        .systemTeal, .magenta, .systemIndigo, .black, .gray
+    ]
+    
+    lazy var selectedColors = {
+        allColors.elements(at: gameData.settingsModel.selectedColors.whereElements(true))
+    }()
+    
     // Methods
     func saveSettings () {
         UserDefaultService.shared.saveData(type: settingsModel, forKey: "Settings")
+        updateColors()
     }
     
     func saveResults () {
@@ -27,5 +37,9 @@ class GameData {
     
     func deleteResults() {
         UserDefaultService.shared.removeData(forKey: "Results")
+    }
+    
+    private func updateColors() {
+        selectedColors = allColors.elements(at: gameData.settingsModel.selectedColors.whereElements(true))
     }
 }
