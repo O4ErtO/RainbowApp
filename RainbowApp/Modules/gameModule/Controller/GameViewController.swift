@@ -9,13 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     //MARK: - Parameters
-    private lazy var gameView =  GameView(colorsArray: gameData.selectedColors.shuffled(), titleButton:  "\(Int(speed)) X")
+    private lazy var gameView =  GameView(colorsArray: gameData.selectedColors.shuffled(), titleButton:  "X \(speed)")
     private let buttonLeft = NavBarButton(with: .left)
     private let buttonRight = NavBarButton(with: .right)
     private var counter = 0
     private var timer: Timer?
     private var secondsRemaining = gameData.settingsModel.gameTime
-    private var speed: Double = Double(gameData.settingsModel.changeTime) //всего до 5х
+    private var speed: Int = 1 //всего до 5х
+    var changeTime = gameData.settingsModel.changeTime
     var count = 0
     
     private var titleTimer: String {
@@ -45,7 +46,7 @@ class GameViewController: UIViewController {
     
     @objc func updateTimer() {
         count += 1
-        if count % Int(speed) == 0 {
+        if count % (changeTime/speed) == 0 {
             gameView.changeButtons()
         }
         secondsRemaining -= 1
@@ -61,6 +62,7 @@ class GameViewController: UIViewController {
             title = "Время вышло"
             print("Вы набрали \(counter) балла")
             buttonRight.isEnabled = false
+            navigationController?.pushViewController(ResultsViewController(), animated: true)
         default:
             break
         }

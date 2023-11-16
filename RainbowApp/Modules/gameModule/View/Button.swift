@@ -13,13 +13,13 @@ protocol ButtonGameDelegate: AnyObject {
 
 final class Button: UIButton {
     weak var delegate: ButtonGameDelegate?
-    private var isActive = false
-    private var count = 0
+    var isActive = false
+    var count = 0
     private var backgroundColorIsEmpty = !gameData.settingsModel.isTextBackground
     private var titleSize = gameData.settingsModel.textSize
     private var chek = gameData.settingsModel.isCountTask
     
-    private let dotView: UIImageView = {
+    let dotView: UIImageView = {
         let view = UIImageView()
         view.image = Image.dot
         view.translatesAutoresizingMaskIntoConstraints = false
