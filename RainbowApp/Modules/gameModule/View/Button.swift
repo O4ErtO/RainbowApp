@@ -8,13 +8,14 @@
 import UIKit
 
 protocol ButtonGameDelegate: AnyObject {
-    func buttonTapped(button: UIButton)
+    func buttonTapped(count: Int)
 }
 
 final class Button: UIButton {
     weak var delegate: ButtonGameDelegate?
     private var isActive = false
-    
+    private var count = 0
+
     private let dotView: UIImageView = {
         let view = UIImageView()
         view.image = Image.dot
@@ -39,16 +40,18 @@ final class Button: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    @objc private func didButtonTapped(sender: UIButton) {
+    @objc private func didButtonTapped() {
+        
         if let checkImageView = dotView.subviews.first(where: { $0 is UIImageView }) {
             checkImageView.removeFromSuperview()
+            self.count -= 1
         } else {
             let checkImageView = UIImageView(image: Image.chek)
             dotView.addSubview(checkImageView)
+            self.count += 1
         }
         isActive.toggle()
-        delegate?.buttonTapped(button: sender)
+        delegate?.buttonTapped(count: count)
     }
     
     private func setContraints () {

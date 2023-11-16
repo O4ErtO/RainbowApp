@@ -10,46 +10,47 @@ import UIKit
 class GameView: UIView {
     
     //MARK: - Parameters
-    lazy var firstButton = Button(color: randomColor(colors: colorsArray), title: randomTitle(titles: titlesArray), titleColor: .white)
-    lazy var secondButton = Button(color: randomColor(colors: colorsArray), title: randomTitle(titles: titlesArray), titleColor: .white)
-    lazy var thirdButton = Button(color: randomColor(colors: colorsArray), title: randomTitle(titles: titlesArray), titleColor: .white)
-    lazy var fourButton = Button(color: randomColor(colors: colorsArray), title: randomTitle(titles: titlesArray), titleColor: .white)
-    lazy var fiveButton = Button(color: randomColor(colors: colorsArray), title: randomTitle(titles: titlesArray), titleColor: .white)
+    lazy var firstButton = Button(color: colorsArray[0], title: titlesArray[0], titleColor: .white)
+    lazy var secondButton = Button(color: colorsArray[1], title: titlesArray[1], titleColor: .white)
+    lazy var thirdButton = Button(color: colorsArray[2], title: titlesArray[2], titleColor: .white)
+    lazy var fourButton = Button(color: colorsArray[3], title: titlesArray[3], titleColor: .white)
+    lazy var fiveButton = Button(color: colorsArray[4], title: titlesArray[4], titleColor: .white)
     
-    private let heightAnch: CGFloat = 116
+    lazy var speedbutton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .red
+        button.setTitle(titleButton, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
+    private let heightAnch: CGFloat = 100
     private let colorsArray: [UIColor]
     private let titlesArray: [String]
+    private let titleButton: String
+    
+    var leadingAnchorArray: [CGFloat] = [20, 70, 120, 170]
     
     //MARK: - Init
-    init(colorsArray: [UIColor], titlesArray: [String]) {
+    init(colorsArray: [UIColor] = [.black, .orange, .blue, .red, .brown].shuffled(), titlesArray: [String] = ["красный","синий","зеленый","желтый","фиолетовый"].shuffled(), titleButton: String) {
         self.titlesArray = titlesArray
         self.colorsArray = colorsArray
+        self.titleButton = titleButton
         super.init(frame: .zero)
         setupView()
         setContraints()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
     //MARK: - Methods
     private func randomConts () -> CGFloat {
-        let array = [20,70,120,170]
-        return CGFloat(array.randomElement()!)
+        return leadingAnchorArray.randomElement()!
     }
-    
-    func randomColor (colors: [UIColor]) -> UIColor {
-        return colors.randomElement() ?? .red
-    }
-    
-    func randomTitle (titles: [String]) -> String {
-        return titles.randomElement() ?? "Green"
-    }
-    
 }
 
 extension GameView {
@@ -60,7 +61,7 @@ extension GameView {
         addSubview(thirdButton)
         addSubview(fourButton)
         addSubview(fiveButton)
-        
+        addSubview(speedbutton)
     }
     
     private func setContraints() {
@@ -79,6 +80,12 @@ extension GameView {
             
             fiveButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor, constant: heightAnch),
             fiveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
+            
+            speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            speedbutton.widthAnchor.constraint(equalToConstant: 50),
+            speedbutton.heightAnchor.constraint(equalToConstant: 50),
+
         ])
     }
 }
