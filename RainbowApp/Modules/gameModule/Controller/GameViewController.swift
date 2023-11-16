@@ -9,12 +9,13 @@ import UIKit
 
 class GameViewController: UIViewController {
     //MARK: - Parameters
-    private lazy var gameView = GameView(titleButton: "10 X")// есть init куда можно добавить [UIColor] и [String]. делать поментку .shuffled
+    private lazy var gameView = GameView(titleButton: "\(Int(speed)) X")// есть init куда можно добавить [UIColor] и [String]. делать поментку .shuffled
     private let buttonLeft = NavBarButton(with: .left)
     private let buttonRight = NavBarButton(with: .right)
     private var counter = 0
     private var timer: Timer?
-    private var secondsRemaining = 60
+    private var secondsRemaining = gameData.settingsModel.gameTime
+    private var speed: Double = Double(gameData.settingsModel.changeTime) //всего до 5х
     
     private var titleTimer: String {
         switch secondsRemaining {
@@ -27,7 +28,7 @@ class GameViewController: UIViewController {
         case 0:
             return "00:00"
         default:
-            return "" // Если secondsRemaining не попадает ни в один из вышеуказанных случаев
+            return ""
         }
     }
     //MARK: - Life cycle
@@ -35,7 +36,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         setViews()
         addNavBarButton()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     //MARK: - Methods
@@ -52,8 +53,10 @@ class GameViewController: UIViewController {
             title = "00:0\(secondsRemaining)"
             secondsRemaining -= 1
         case 0:
-            timer?.invalidate() // Остановить таймер
-            title = "Time's up!"
+            timer?.invalidate()
+            title = "Время вышло"
+            print("Вы набрали \(counter) балла")
+            buttonRight.isEnabled = false
         default:
             break
         }
@@ -67,7 +70,7 @@ extension GameViewController: ButtonGameDelegate {
         } else {
             counter -= 1
         }
-        print(counter)
+        print(counter) //прописать функцию сохранения данных
     }
     
     //MARK: - AddNavBarButton
@@ -82,7 +85,7 @@ extension GameViewController {
     private func setViews() {
         view = gameView
         title = titleTimer
-        //        gameView.backgroundColor = UD.color
+        gameView.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
         
         gameView.firstButton.delegate = self
         gameView.secondButton.delegate = self
@@ -99,13 +102,16 @@ extension GameViewController {
 extension GameViewController: NavBarButtonDelegate {
     func leftBarButtonTapped() {
         navigationController?.popViewController(animated: true)
+        timer?.invalidate()
+        //прописать фунцию сохранения результата
     }
     func rightBarButtonTapped() {
         if timer?.isValid == true {
             timer?.invalidate()
             print(secondsRemaining + 1)
+            
         } else {
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
     }
 }

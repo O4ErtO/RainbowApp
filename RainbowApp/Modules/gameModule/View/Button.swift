@@ -15,7 +15,10 @@ final class Button: UIButton {
     weak var delegate: ButtonGameDelegate?
     private var isActive = false
     private var count = 0
-
+    private var backgroundColorIsEmpty = gameData.settingsModel.isTextBackground
+    private var titleSize = gameData.settingsModel.textSize
+    private var chek = gameData.settingsModel.isCountTask
+    
     private let dotView: UIImageView = {
         let view = UIImageView()
         view.image = Image.dot
@@ -25,19 +28,41 @@ final class Button: UIButton {
     
     init(color: UIColor?, title: String?, titleColor: UIColor?) {
         super.init(frame: .zero)
-        backgroundColor = color
+        backgroundColor = backgroundIsEmpty(color: (color ?? .red))
         setTitle(title, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: titleSize)
         setTitleColor(titleColor, for: .normal)
         layer.cornerRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(dotView)
         addTarget(self, action: #selector(didButtonTapped), for: .touchUpInside)
         makeSystem(self)
+        buttonIsHidden(button: self)
         setContraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func backgroundIsEmpty(color: UIColor) -> UIColor {
+        if backgroundColorIsEmpty {
+            return .clear
+        } else {
+            return color
+        }
+    }
+        
+    private func buttonIsHidden(button: UIButton) {
+            if chek {
+                dotView.isHidden = false
+                button.isEnabled = true
+            } else {
+                dotView.isHidden = true
+                button.isEnabled = false
+
+            }
+        
     }
     
     @objc private func didButtonTapped() {
@@ -60,7 +85,7 @@ final class Button: UIButton {
             heightAnchor.constraint(equalToConstant: 40),
             
             dotView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            dotView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            dotView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             dotView.widthAnchor.constraint(equalToConstant: 20),
             dotView.heightAnchor.constraint(equalToConstant: 20)
             
