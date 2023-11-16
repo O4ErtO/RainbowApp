@@ -32,7 +32,7 @@ class GameData {
     }
     
     func saveGameModel () {
-        UserDefaultService.shared.saveData(type: settingsModel, forKey: "Game")
+        UserDefaultService.shared.saveData(type: gameModel, forKey: "Game")
     }
     
     func deleteResults() {

@@ -16,13 +16,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
+        mainView.setupNextButton()
+        if gameData.settingsModel.backgroundColor == "#000000" {
+            mainView.rainbowLabel.textColor = .white
+            mainView.gameLabel.textColor = .white
+        } else {
+            mainView.rainbowLabel.textColor = .black
+            mainView.gameLabel.textColor = .black
+        }
     }
-
-    
 }
 
 extension MainViewController {
@@ -35,6 +41,8 @@ extension MainViewController {
 
 extension MainViewController: MainViewDelegate {
     func didTapNewGameButton() {
+        gameData.gameModel = GameModel()
+        gameData.saveGameModel()
         let vc = GameViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

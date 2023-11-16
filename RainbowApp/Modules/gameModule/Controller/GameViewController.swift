@@ -16,10 +16,10 @@ class GameViewController: UIViewController {
     private var timer: Timer?
     private var secondsRemaining = gameData.settingsModel.gameTime - gameData.gameModel.currentTime
     private var speed: Int = 1 //всего до 5х
-    var changeTime = gameData.settingsModel.changeTime
-    var time = gameData.gameModel.currentTime
-    var numberOfQuestions = 0
-    var isPlaying = true
+    private var changeTime = gameData.settingsModel.changeTime
+    private var time = gameData.gameModel.currentTime
+    private var numberOfQuestions = gameData.gameModel.numberOfQuestions
+    private var isPlaying = true
     
     private var titleTimer: String {
         switch secondsRemaining {
@@ -51,6 +51,7 @@ class GameViewController: UIViewController {
         time += 1
         if time % max((changeTime/speed),1) == 0 {
             gameView.changeButtons()
+            numberOfQuestions += 5
         }
         secondsRemaining -= 1
         switch secondsRemaining {
@@ -69,11 +70,12 @@ class GameViewController: UIViewController {
             gameData.addResult(Round(time: gameData.settingsModel.gameTime, guessed: counter, numberOfQuestions: numberOfQuestions, speed: speed))
             gameData.saveResults()
             gameData.gameModel = GameModel()
+            gameData.saveGameModel()
             print("Количество игр: \(gameData.results.results.count)")
             for (index,round) in gameData.results.results.enumerated() {
                 print("Очков в игре \(index+1):\(round.guessed)")
             }
-           // navigationController?.pushViewController(ResultsViewController(), animated: true)
+           navigationController?.pushViewController(ResultsViewController(), animated: true)
         default:
             break
         }
@@ -123,6 +125,7 @@ extension GameViewController: NavBarButtonDelegate {
         gameData.gameModel.currentCount = counter
         gameData.gameModel.currentTime = time
         gameData.gameModel.numberOfQuestions = numberOfQuestions
+        gameData.saveGameModel()
         gameData.saveResults()
         navigationController?.popViewController(animated: true)
         timer?.invalidate()
@@ -131,13 +134,11 @@ extension GameViewController: NavBarButtonDelegate {
         if timer?.isValid == true {
             timer?.invalidate()
             print(secondsRemaining + 1)
-            
         } else {
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
     }
 }
-
 
 // Speed button Delegate
 extension GameViewController: SpeedButtonDelegate {

@@ -51,7 +51,7 @@ class MainView: UIView {
         return image
     }()
     
-    private lazy var gameLabel: UILabel = {
+    lazy var gameLabel: UILabel = {
         let label = UILabel()
         label.text = R.Label.nlpGame
         label.font = UIFont.systemFont(ofSize: 36, weight: .light)
@@ -60,7 +60,7 @@ class MainView: UIView {
         return label
     }()
     
-    private lazy var rainbowLabel: UILabel = {
+    lazy var rainbowLabel: UILabel = {
         let label = UILabel()
         label.text = R.Label.rainbow
         label.font = Fonts.CormorantInfant(with: 60)
@@ -82,7 +82,7 @@ class MainView: UIView {
         return button
     }()
     
-    private lazy var nextButton: UIButton = {
+    lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         
         button.setTitle(R.Label.next, for: .normal)
@@ -90,6 +90,7 @@ class MainView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.isEnabled = true
         button.addTarget(self, action: #selector(nextButtonButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -145,9 +146,17 @@ class MainView: UIView {
         addSubview(configButton)
         addSubview(labelStack)
         addSubview(buttonStack)
-        
     }
     
+   func setupNextButton () {
+        if gameData.gameModel.isPlaying {
+            nextButton.isEnabled = true
+            nextButton.alpha = 1
+        } else {
+            nextButton.isEnabled = false
+            nextButton.alpha = 0.5
+        }
+    }
     
     private func setContraints() {
         NSLayoutConstraint.activate([
