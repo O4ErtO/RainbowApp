@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
         setViews()
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
     }

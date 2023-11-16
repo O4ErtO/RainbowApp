@@ -62,11 +62,11 @@ class ResultCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(game: Int, time: Int, speed: Int, answers: Int, questions: Int) {
-        gameLabel.text = "Игра №\(game)"
-        timeLabel.text = "Время \(time) sec."
-        speedLabel.text = "Скорость x\(speed)"
-        currentAnswers.text = "Угадано \(answers)/\(questions)"
+    func configure(round: Round, gameNumber: Int) {
+        gameLabel.text = "Игра №\(gameNumber)"
+        timeLabel.text = "Время \(round.time) sec."
+        speedLabel.text = "Скорость x\(round.speed)"
+        currentAnswers.text = "Угадано \(round.guessed)/\(round.numberOfQuestions)"
     }
     
     private func setupUI() {

@@ -10,33 +10,7 @@ import SnapKit
 
 class ResultView: UIView {
     
-    private lazy var headerTitleStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 40
-        stack.alignment = .fill
-        stack.distribution = .fillProportionally
-        stack.addArrangedSubview(returnButton)
-        stack.addArrangedSubview(headerTitle)
-        return stack
-    }()
-    
-    private lazy var headerTitle: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Avenir Next Medium", size: 30)
-        label.text = "Статистика"
-        label.textColor = .black
-        return label
-    }()
-    
-    private lazy var returnButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setBackgroundImage(UIImage(named: "arrow"), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        button.tintColor = .black
-        return button
-    }()
-    
+    //MARK: - Parameters
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -57,6 +31,7 @@ class ResultView: UIView {
         return button
     }()
     
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -68,6 +43,7 @@ class ResultView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     func setDelegates(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         tableView.delegate = delegate
         tableView.dataSource = dataSource
@@ -78,7 +54,6 @@ private extension ResultView {
     private func setupUI() {
         backgroundColor = .systemGray
         setupSubviews(
-            headerTitleStack,
             tableView,
             clearButton
         )
@@ -91,12 +66,6 @@ private extension ResultView {
     }
     
     private func setConstraints() {
-        headerTitleStack.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(10)
-            make.leading.equalTo(safeAreaLayoutGuide).inset(20)
-            make.trailing.equalTo(safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(300)
-        }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).inset(80)

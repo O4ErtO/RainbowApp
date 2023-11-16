@@ -9,39 +9,59 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
+    //MARK: - Parameters
     let resultView = ResultView()
-
+    var resultsData = gameData.results.results
+    
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
+        setNavAppearance()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
+    }
+    
+    //MARK: - Methods
     
     private func setupViews() {
         view = resultView
         resultView.setDelegates(delegate: self, dataSource: self)
+        //set title appearance
+        title = "Статистика"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)]
+    }
+    
+    private func setNavAppearance() {
+        let leftButton = NavBarButton(with: .left)
+        leftButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    }
+    
+    @objc func backButtonAction() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
+//MARK: - TableView delegate
 extension ResultsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
     }
 }
 
+//MARK: - TableView datasource
 extension ResultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        resultsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultCell.identifier, for: indexPath) as? ResultCell else { return UITableViewCell() }
-        cell.configure(
-            game: indexPath.row,
-            time: 15,
-            speed: 2,
-            answers: indexPath.count,
-            questions: indexPath.row)
+        cell.configure(round: resultsData[indexPath.row], gameNumber: indexPath.row)
         
         return cell
     }
