@@ -1,5 +1,4 @@
 //
-//
 //  RainbowApp
 //
 
@@ -13,26 +12,7 @@ class GameView: UIView {
     weak var delegate: SpeedButtonDelegate?
     
     //MARK: - Parameters
-    lazy var firstButton = Button(
-        color: colorsArray[0],
-        title: titlesArray[0],
-        titleColor: .white)
-    lazy var secondButton = Button(
-        color: colorsArray[safe: 1] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
-        title: titlesArray[1],
-        titleColor: .white)
-    lazy var thirdButton = Button(
-        color: colorsArray[safe: 2] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
-        title: titlesArray[2],
-        titleColor: .white)
-    lazy var fourButton = Button(
-        color: colorsArray[safe: 3] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
-        title: titlesArray[3],
-        titleColor: .white)
-    lazy var fiveButton = Button(
-        color: colorsArray[safe: 4] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
-        title: titlesArray[4],
-        titleColor: .white)
+    var playButtons = [Button]()
     
     private let heightAnch: CGFloat = 100
     private var colorsArray: [UIColor]
@@ -78,87 +58,65 @@ extension GameView {
     func changeButtons() {
         colorsArray.shuffle()
         titlesArray.shuffle()
-            
-        if let checkImageView = firstButton.dotView.subviews.first(where: { $0 is UIImageView }) {
-            checkImageView.removeFromSuperview()
-        }
-        firstButton.count = 0
-        if let checkImageView = secondButton.dotView.subviews.first(where: { $0 is UIImageView }) {
-            checkImageView.removeFromSuperview()
-        }
-        secondButton.count = 0
-        if let checkImageView = thirdButton.dotView.subviews.first(where: { $0 is UIImageView }) {
-            checkImageView.removeFromSuperview()
-        }
-        thirdButton.count = 0
-        if let checkImageView = fourButton.dotView.subviews.first(where: { $0 is UIImageView }) {
-            checkImageView.removeFromSuperview()
-        }
-        fourButton.count = 0
-        if let checkImageView = fiveButton.dotView.subviews.first(where: { $0 is UIImageView }) {
-            checkImageView.removeFromSuperview()
-        }
-        fiveButton.count = 0
-
-        firstButton.setTitle(titlesArray[0], for: .normal)
-        secondButton.setTitle(titlesArray[1], for: .normal)
-        thirdButton.setTitle(titlesArray[2], for: .normal)
-        fourButton.setTitle(titlesArray[3], for: .normal)
-        fiveButton.setTitle(titlesArray[4], for: .normal)
         
-    
-        UIView.animate(withDuration: 0.5) {
-            self.firstButton.backgroundColor = self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.thirdButton.backgroundColor = self.colorsArray[safe: 2] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.fourButton.backgroundColor = self.colorsArray[safe: 3] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.fiveButton.backgroundColor = self.colorsArray[safe: 4] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+        for (i,button) in playButtons.enumerated() {
+            button.setTitle(titlesArray[i], for: .normal)
+            if let checkImageView = button.dotView.subviews.first(where: { $0 is UIImageView })
+            {
+                checkImageView.removeFromSuperview()
+                button.count = 0
+            }
+        }
+        
+        UIView.animate(withDuration: 0.8) {
+            for (i,button) in self.playButtons.enumerated() {
+                button.backgroundColor = self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            }
         }
     }
     
     func moveButtons () {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2) {
-            self.firstButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.secondButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.thirdButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.fourButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-            self.fiveButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2) {
+            for button in self.playButtons {
+                button.frame.origin.x = CGFloat(Int.random(in: 5...170))
+            }
         }
     }
     
     private func setupView() {
-        backgroundColor = R.Color.backgroundColor
-        addSubview(firstButton)
-        addSubview(secondButton)
-        addSubview(thirdButton)
-        addSubview(fourButton)
-        addSubview(fiveButton)
+        for i in 0...4 {
+            playButtons.append(
+                Button(
+                    color: colorsArray[safe: i] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
+                    title: titlesArray[i],
+                    titleColor: .white
+                )
+            )
+            addSubview(playButtons[i])
+        }
         addSubview(speedbutton)
+        backgroundColor = R.Color.backgroundColor
         speedbutton.addTarget(self, action: #selector(didSpeedTapped), for: .touchUpInside)
     }
     
     private func setContraints() {
-
+        for (i,button) in playButtons.enumerated() {
+            button.centerXAnchor.constraint(equalTo: centerXAnchor,
+                                            constant: randomConts()).isActive = true
+            if i == 0 {
+                button.topAnchor.constraint(equalTo: topAnchor,
+                                            constant: 130).isActive = true
+            } else {
+                button.topAnchor.constraint(equalTo: playButtons[i-1].bottomAnchor,
+                                            constant: heightAnch).isActive = true
+            }
+        }
+        
         NSLayoutConstraint.activate([
-            firstButton.topAnchor.constraint(equalTo: topAnchor, constant: 130),
-            firstButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: randomConts()),
-            
-            secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: heightAnch),
-            secondButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: heightAnch),
-            thirdButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            fourButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: heightAnch),
-            fourButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            fiveButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor, constant: heightAnch),
-            fiveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
             speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
             speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             speedbutton.widthAnchor.constraint(equalToConstant: 50),
-            speedbutton.heightAnchor.constraint(equalToConstant: 50),
-
+            speedbutton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

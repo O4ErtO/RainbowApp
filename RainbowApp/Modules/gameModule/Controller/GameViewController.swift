@@ -1,8 +1,5 @@
 //
-//  5ViewController.swift
 //  RainbowApp
-//
-//  Created by Dmitry on 09.11.2023.
 //
 
 import UIKit
@@ -19,7 +16,6 @@ class GameViewController: UIViewController {
     private var changeTime = gameData.settingsModel.changeTime
     private var time = gameData.gameModel.currentTime
     private var numberOfQuestions = gameData.gameModel.numberOfQuestions
-    private var isPlaying = true
     
     private var titleTimer: String {
         switch secondsRemaining {
@@ -35,17 +31,16 @@ class GameViewController: UIViewController {
             return ""
         }
     }
-    //MARK: - Life cycle
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Количество игр в начале: \(gameData.results.results.count)")
         gameData.updateColors()
         setViews()
         addNavBarButton()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     @objc func updateTimer() {
         time += 1
@@ -66,25 +61,14 @@ class GameViewController: UIViewController {
             title = "00:0\(secondsRemaining)"
         case 0:
             timer?.invalidate()
-            title = "Время вышло"
-            print("Вы набрали \(counter) балла")
-            buttonRight.isEnabled = false
-            isPlaying = false
-            gameData.addResult(Round(time: gameData.settingsModel.gameTime, guessed: counter, numberOfQuestions: numberOfQuestions, speed: speed))
-            gameData.saveResults()
-            gameData.gameModel = GameModel()
-            gameData.saveGameModel()
-            print("Количество игр: \(gameData.results.results.count)")
-            for (index,round) in gameData.results.results.enumerated() {
-                print("Очков в игре \(index+1):\(round.guessed)")
-            }
-           navigationController?.pushViewController(ResultsViewController(), animated: true)
+            gameOver()
+            navigationController?.pushViewController(ResultsViewController(), animated: true)
         default:
             break
         }
     }
 }
-//MARK: - ButtonGameDelegate
+// MARK: - ButtonGameDelegate
 extension GameViewController: ButtonGameDelegate {
     func buttonTapped(count: Int) {
         if count == 1 {
@@ -92,36 +76,45 @@ extension GameViewController: ButtonGameDelegate {
         } else {
             counter -= 1
         }
-        print(counter) //прописать функцию сохранения данных
     }
     
-    //MARK: - AddNavBarButton
+    // MARK: - AddNavBarButton
     func addNavBarButton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: buttonLeft)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonRight)
     }
 }
 
-//MARK: - SetViews
+// MARK: - SetViews
 extension GameViewController {
     private func setViews() {
         view = gameView
         title = titleTimer
         gameView.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
-        
-        gameView.firstButton.delegate = self
-        gameView.secondButton.delegate = self
-        gameView.thirdButton.delegate = self
-        gameView.fourButton.delegate = self
-        gameView.fiveButton.delegate = self
-        
+        gameView.playButtons.forEach { button in
+            button.delegate = self
+        }
         buttonLeft.delegate = self
         buttonRight.delegate = self
         gameView.delegate = self
     }
+    
+    private func gameOver() {
+        title = "Время вышло"
+        print("Вы набрали \(counter) балла")
+        buttonRight.isEnabled = false
+        gameData.addResult(Round(time: gameData.settingsModel.gameTime, guessed: counter, numberOfQuestions: numberOfQuestions, speed: speed))
+        gameData.saveResults()
+        gameData.gameModel = GameModel()
+        gameData.saveGameModel()
+        print("Количество игр: \(gameData.results.results.count)")
+        for (index,round) in gameData.results.results.enumerated() {
+            print("Очков в игре \(index+1):\(round.guessed)")
+        }
+    }
 }
 
-//MARK: - NavBarButtonDelegate
+// MARK: - NavBarButtonDelegate
 extension GameViewController: NavBarButtonDelegate {
     func leftBarButtonTapped() {
         gameData.gameModel.isPlaying = true
@@ -133,6 +126,7 @@ extension GameViewController: NavBarButtonDelegate {
         navigationController?.popViewController(animated: true)
         timer?.invalidate()
     }
+    
     func rightBarButtonTapped() {
         if timer?.isValid == true {
             timer?.invalidate()
@@ -143,14 +137,10 @@ extension GameViewController: NavBarButtonDelegate {
     }
 }
 
-// Speed button Delegate
+// MARK: - Speed button Delegate
 extension GameViewController: SpeedButtonDelegate {
     func speedTapped() {
         speed = (speed < 5) ? (speed + 1) : 1
         gameView.speedbutton.setTitle("X \(speed)", for: .normal)
     }
 }
-
-
-
-
