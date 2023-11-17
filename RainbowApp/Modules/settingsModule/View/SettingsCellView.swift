@@ -13,7 +13,7 @@ class SettingsCellView: UIView {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = .init(width: 5, height: 10)
-        self.layer.shadowRadius =  5
+        self.layer.shadowRadius = 5
         self.layer.shouldRasterize = true
         self.layer.masksToBounds = false
         self.translatesAutoresizingMaskIntoConstraints = false

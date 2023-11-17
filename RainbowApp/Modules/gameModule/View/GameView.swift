@@ -1,26 +1,23 @@
 //
-//  5View.swift
 //  RainbowApp
-//
-//  Created by Dmitry on 09.11.2023.
 //
 
 import UIKit
 
+protocol SpeedButtonDelegate: AnyObject {
+    func speedTapped()
+}
+
 class GameView: UIView {
+    weak var delegate: SpeedButtonDelegate?
     
     //MARK: - Parameters
-    lazy var firstButton = Button(color: colorsArray[0], title: titlesArray[0], titleColor: .white)
-    lazy var secondButton = Button(color: colorsArray[1], title: titlesArray[1], titleColor: .white)
-    lazy var thirdButton = Button(color: colorsArray[2], title: titlesArray[2], titleColor: .white)
-    lazy var fourButton = Button(color: colorsArray[3], title: titlesArray[3], titleColor: .white)
-    lazy var fiveButton = Button(color: colorsArray[4], title: titlesArray[4], titleColor: .white)
+    var playButtons = [Button]()
     
     private let heightAnch: CGFloat = 100
-    private let colorsArray: [UIColor]
-    private let titlesArray: [String]
+    private var colorsArray: [UIColor]
+    private var titlesArray: [String]
     private let titleSpeedButton: String
-    private var leadingAnchorArray: [CGFloat] = [20, 70, 120, 170]// изменить входящие данные
     
     lazy var speedbutton: UIButton = {
         let button = UIButton()
@@ -33,14 +30,13 @@ class GameView: UIView {
     }()
     
     //MARK: - Init
-    init(colorsArray: [UIColor] = [.black, .orange, .blue, .red, .brown].shuffled(), titlesArray: [String] = ["красный","синий","зеленый","желтый","фиолетовый"].shuffled(), titleButton: String) {
+    init(colorsArray: [UIColor] = gameData.selectedColors.shuffled(), titlesArray: [String] = ["красный","синий","зеленый","желтый","фиолетовый", "розовый"].shuffled(), titleButton: String) {
         self.titlesArray = titlesArray
         self.colorsArray = colorsArray
         self.titleSpeedButton = titleButton
         super.init(frame: .zero)
         setupView()
         setContraints()
-
     }
     
     required init?(coder: NSCoder) {
@@ -48,44 +44,79 @@ class GameView: UIView {
     }
 
     //MARK: - Methods
+    @objc private func didSpeedTapped() {
+        delegate?.speedTapped()
+    }
+    
     private func randomConts () -> CGFloat {
-        return leadingAnchorArray.randomElement()!
+        return CGFloat(Int.random(in: -100...100) * gameData.settingsModel.wordPosition.rawValue)
     }
 }
 
 extension GameView {
+    
+    func changeButtons() {
+        colorsArray.shuffle()
+        titlesArray.shuffle()
+        
+        for (i,button) in playButtons.enumerated() {
+            button.setTitle(titlesArray[i], for: .normal)
+            if let checkImageView = button.dotView.subviews.first(where: { $0 is UIImageView })
+            {
+                checkImageView.removeFromSuperview()
+                button.count = 0
+            }
+        }
+        
+        UIView.animate(withDuration: 0.8) {
+            for (i,button) in self.playButtons.enumerated() {
+                button.backgroundColor = self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            }
+        }
+    }
+    
+    func moveButtons () {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2) {
+            for button in self.playButtons {
+                button.frame.origin.x = CGFloat(Int.random(in: 5...170))
+            }
+        }
+    }
+    
     private func setupView() {
-        backgroundColor = R.Color.backgroundColor
-        addSubview(firstButton)
-        addSubview(secondButton)
-        addSubview(thirdButton)
-        addSubview(fourButton)
-        addSubview(fiveButton)
+        for i in 0...4 {
+            playButtons.append(
+                Button(
+                    color: colorsArray[safe: i] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
+                    title: titlesArray[i],
+                    titleColor: .white
+                )
+            )
+            addSubview(playButtons[i])
+        }
         addSubview(speedbutton)
+        backgroundColor = R.Color.backgroundColor
+        speedbutton.addTarget(self, action: #selector(didSpeedTapped), for: .touchUpInside)
     }
     
     private func setContraints() {
+        for (i,button) in playButtons.enumerated() {
+            button.centerXAnchor.constraint(equalTo: centerXAnchor,
+                                            constant: randomConts()).isActive = true
+            if i == 0 {
+                button.topAnchor.constraint(equalTo: topAnchor,
+                                            constant: 130).isActive = true
+            } else {
+                button.topAnchor.constraint(equalTo: playButtons[i-1].bottomAnchor,
+                                            constant: heightAnch).isActive = true
+            }
+        }
+        
         NSLayoutConstraint.activate([
-            firstButton.topAnchor.constraint(equalTo: topAnchor, constant: 130),
-            firstButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: heightAnch),
-            secondButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: heightAnch),
-            thirdButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            fourButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: heightAnch),
-            fourButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
-            fiveButton.topAnchor.constraint(equalTo: fourButton.bottomAnchor, constant: heightAnch),
-            fiveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
-            
             speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
             speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             speedbutton.widthAnchor.constraint(equalToConstant: 50),
-            speedbutton.heightAnchor.constraint(equalToConstant: 50),
-
+            speedbutton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

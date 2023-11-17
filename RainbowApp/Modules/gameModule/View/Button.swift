@@ -13,13 +13,13 @@ protocol ButtonGameDelegate: AnyObject {
 
 final class Button: UIButton {
     weak var delegate: ButtonGameDelegate?
-    private var isActive = false
-    private var count = 0
-    private var backgroundColorIsEmpty = gameData.settingsModel.isTextBackground
+    var isActive = false
+    var count = 0
+    private var backgroundColorIsEmpty = !gameData.settingsModel.isTextBackground
     private var titleSize = gameData.settingsModel.textSize
     private var chek = gameData.settingsModel.isCountTask
     
-    private let dotView: UIImageView = {
+    let dotView: UIImageView = {
         let view = UIImageView()
         view.image = Image.dot
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +33,12 @@ final class Button: UIButton {
         titleLabel?.font = UIFont.systemFont(ofSize: titleSize)
         setTitleColor(titleColor, for: .normal)
         layer.cornerRadius = 10
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = .init(width: 5, height: 10)
+        layer.shadowRadius =  5
+        layer.shouldRasterize = true
+        layer.masksToBounds = false
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(dotView)
         addTarget(self, action: #selector(didButtonTapped), for: .touchUpInside)
@@ -54,15 +60,13 @@ final class Button: UIButton {
     }
         
     private func buttonIsHidden(button: UIButton) {
-            if chek {
-                dotView.isHidden = false
-                button.isEnabled = true
-            } else {
-                dotView.isHidden = true
-                button.isEnabled = false
-
-            }
-        
+        if chek {
+            dotView.isHidden = false
+            button.isEnabled = true
+        } else {
+            dotView.isHidden = true
+            button.isEnabled = false
+        }
     }
     
     @objc private func didButtonTapped() {
