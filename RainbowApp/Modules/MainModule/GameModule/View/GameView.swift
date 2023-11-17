@@ -49,7 +49,7 @@ class GameView: UIView {
     }
     
     private func randomConts () -> CGFloat {
-        return CGFloat(Int.random(in: -100...100) * gameData.settingsModel.wordPosition.rawValue)
+        return CGFloat(Int.random(in: -80...80) * gameData.settingsModel.wordPosition.rawValue)
     }
 }
 
