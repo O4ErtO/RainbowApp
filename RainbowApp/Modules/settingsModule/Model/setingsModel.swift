@@ -16,8 +16,8 @@ struct SettingsModel: Codable {
 }
 
 enum WordPosition: Int, Codable {
-    case random
     case center
+    case random
 }
 
 enum SettingsLabel {

@@ -52,6 +52,9 @@ class GameViewController: UIViewController {
         if time % max((changeTime/speed),1) == 0 {
             gameView.changeButtons()
             numberOfQuestions += 5
+            if gameData.settingsModel.wordPosition.self == .random {
+                gameView.moveButtons()
+            }
         }
         secondsRemaining -= 1
         switch secondsRemaining {

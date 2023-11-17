@@ -69,7 +69,7 @@ class GameView: UIView {
     }
     
     private func randomConts () -> CGFloat {
-        return CGFloat(Int.random(in: 20...170))
+        return CGFloat(Int.random(in: -100...100) * gameData.settingsModel.wordPosition.rawValue)
     }
 }
 
@@ -106,18 +106,22 @@ extension GameView {
         fourButton.setTitle(titlesArray[3], for: .normal)
         fiveButton.setTitle(titlesArray[4], for: .normal)
         
+    
+        UIView.animate(withDuration: 0.5) {
+            self.firstButton.backgroundColor = self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            self.thirdButton.backgroundColor = self.colorsArray[safe: 2] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            self.fourButton.backgroundColor = self.colorsArray[safe: 3] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            self.fiveButton.backgroundColor = self.colorsArray[safe: 4] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+        }
+    }
+    
+    func moveButtons () {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2) {
             self.firstButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
             self.secondButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
             self.thirdButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
             self.fourButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
             self.fiveButton.frame.origin.x = CGFloat(Int.random(in: 0...150))
-        }
-        UIView.animate(withDuration: 0.5) {
-            self.firstButton.backgroundColor = self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.thirdButton.backgroundColor = self.colorsArray[safe: 2] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.fourButton.backgroundColor = self.colorsArray[safe: 3] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
-            self.fiveButton.backgroundColor = self.colorsArray[safe: 4] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
         }
     }
     
@@ -136,7 +140,7 @@ extension GameView {
 
         NSLayoutConstraint.activate([
             firstButton.topAnchor.constraint(equalTo: topAnchor, constant: 130),
-            firstButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(Int.random(in: 20...170))),
+            firstButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: randomConts()),
             
             secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: heightAnch),
             secondButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: randomConts()),
