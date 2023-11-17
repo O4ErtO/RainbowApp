@@ -110,6 +110,9 @@ extension settingsViewController: SettingsViewDelegate {
                 self.settingsView.backgroundColor = .gray
                 gameData.settingsModel.backgroundColor = "#00000033"
             }
+            self.settingsView.customCell.forEach { cell in
+                cell.layer.shadowColor = gameData.getFontColor().cgColor
+            }
         }
     }
     
