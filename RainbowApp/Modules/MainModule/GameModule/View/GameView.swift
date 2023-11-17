@@ -69,8 +69,10 @@ extension GameView {
         }
         
         UIView.animate(withDuration: 0.8) {
-            for (i,button) in self.playButtons.enumerated() {
-                button.backgroundColor = self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+            if gameData.settingsModel.isTextBackground {
+                for (i,button) in self.playButtons.enumerated() {
+                    button.backgroundColor = self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+                }
             }
         }
     }
