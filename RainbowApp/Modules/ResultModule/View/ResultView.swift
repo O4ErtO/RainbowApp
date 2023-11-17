@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol ResultViewDelegate: AnyObject {
+    func didTapClearResults()
+}
+
 class ResultView: UIView {
     
+    weak var delegate: ResultViewDelegate?
+    
     //MARK: - Parameters
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
@@ -48,6 +54,10 @@ class ResultView: UIView {
         tableView.delegate = delegate
         tableView.dataSource = dataSource
     }
+    
+    @objc func didClearButtonTapped() {
+        delegate?.didTapClearResults()
+    }
 }
 
 private extension ResultView {
@@ -63,6 +73,7 @@ private extension ResultView {
         subview.forEach { subview in
             addSubview(subview)
         }
+        clearButton.addTarget(self, action: #selector(didClearButtonTapped), for: .touchUpInside)
     }
     
     private func setConstraints() {

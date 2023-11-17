@@ -36,8 +36,9 @@ class GameData {
     }
     
     func deleteResults() {
-        UserDefaultService.shared.removeData(forKey: "Results")
+        UserDefaultService.shared.removeData(forKey: "Rounds")
         results = ResultsModel()
+        saveResults()
     }
     
     func updateColors() {
@@ -50,5 +51,9 @@ class GameData {
     func addResult(_ round: Round) {
         results.results.append(round)
         saveResults()
+    }
+    
+    func getFontColor() -> UIColor {
+        settingsModel.backgroundColor == "#000000" ? .white : .black
     }
 }

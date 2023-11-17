@@ -30,9 +30,10 @@ class ResultsViewController: UIViewController {
     private func setupViews() {
         view = resultView
         resultView.setDelegates(delegate: self, dataSource: self)
+        resultView.delegate = self
         //set title appearance
         title = "Статистика"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
     }
     
     private func setNavAppearance() {
@@ -61,10 +62,16 @@ extension ResultsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultCell.identifier, for: indexPath) as? ResultCell else { return UITableViewCell() }
-        cell.configure(round: resultsData[indexPath.row], gameNumber: indexPath.row)
+        cell.configure(round: resultsData[indexPath.row], gameNumber: indexPath.row + 1)
         
         return cell
     }
-    
-    
+}
+
+extension ResultsViewController: ResultViewDelegate {
+    func didTapClearResults() {
+        gameData.deleteResults()
+        resultsData = []
+        resultView.tableView.reloadData()
+    }
 }
