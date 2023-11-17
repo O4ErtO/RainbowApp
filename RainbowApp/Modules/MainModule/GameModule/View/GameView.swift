@@ -25,7 +25,7 @@ class GameView: UIView {
         button.layer.cornerRadius = 25
         button.backgroundColor = .red
         button.setTitle(titleSpeedButton, for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(gameData.getFontColor(), for: .normal)
         return button
     }()
     
@@ -69,9 +69,14 @@ extension GameView {
         }
         
         UIView.animate(withDuration: 0.8) {
-            if gameData.settingsModel.isTextBackground {
-                for (i,button) in self.playButtons.enumerated() {
+            for (i,button) in self.playButtons.enumerated() {
+                if gameData.settingsModel.isTextBackground {
                     button.backgroundColor = self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)]
+                } else {
+                    button.setTitleColor(self.colorsArray[safe: i] ?? self.colorsArray[Int.random(in: 0..<self.colorsArray.count)], for: .normal)
+                    if button.titleColor(for: .normal) == .black {
+                        button.setTitleColor(gameData.getFontColor(), for: .normal)
+                    }
                 }
             }
         }
@@ -91,9 +96,13 @@ extension GameView {
                 Button(
                     color: colorsArray[safe: i] ?? colorsArray[Int.random(in: 0..<colorsArray.count)],
                     title: titlesArray[i],
-                    titleColor: .white
+                    titleColor: gameData.settingsModel.isTextBackground  ?
+                        .white :  colorsArray[safe: i] ?? colorsArray[Int.random(in: 0..<colorsArray.count)]
                 )
             )
+            if playButtons[i].titleColor(for: .normal) == .black {
+                playButtons[i].setTitleColor(gameData.getFontColor(), for: .normal)
+            }
             addSubview(playButtons[i])
         }
         addSubview(speedbutton)

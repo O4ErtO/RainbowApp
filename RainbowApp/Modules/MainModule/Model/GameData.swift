@@ -14,7 +14,7 @@ class GameData {
     
     let allColors: [UIColor] = [
         .cyan, .green, .blue, .purple, .systemPink, .orange, .red,
-        .systemTeal, .magenta, .systemIndigo, .black, .gray
+        .systemTeal, .magenta, .systemIndigo, .black, .lightGray 
     ]
     
     lazy var selectedColors = {
