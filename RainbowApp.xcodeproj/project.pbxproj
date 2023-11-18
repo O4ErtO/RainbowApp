@@ -140,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACD9E852B02BF0700FE9DBA /* MainModule */,
+				0A162AAB2AFD20FA00DF885A /* GameModule */,
 				0A1DF5112B04EA7800A40FC1 /* ResultModule */,
 				0A162AC02AFD20FA00DF885A /* RulesModule */,
 				0A162AB22AFD20FA00DF885A /* SettingsModule */,
@@ -301,7 +302,6 @@
 		0ACD9E852B02BF0700FE9DBA /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				0A162AAB2AFD20FA00DF885A /* GameModule */,
 				0ACD9E882B02BF0700FE9DBA /* Model */,
 				0ACD9E8A2B02BF0700FE9DBA /* View */,
 				0ACD9E862B02BF0700FE9DBA /* Controller */,
