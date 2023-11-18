@@ -123,7 +123,7 @@ class SettingsView: UIView {
     
     private func setUpView() {
         for _ in 0...7 {
-            customCell.append(SettingsCellView(frame: .zero))
+            customCell.append(SettingsCellView())
         }
         addSubview(scrollView)
         scrollView.addSubview(mainStackView)
@@ -187,7 +187,7 @@ class SettingsView: UIView {
     
     func setConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),

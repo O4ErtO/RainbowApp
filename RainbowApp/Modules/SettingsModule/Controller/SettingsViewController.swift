@@ -6,9 +6,6 @@ import UIKit
 
 class settingsViewController: UIViewController {
  
-    override func loadView() {
-        super.loadView()
-    }
     // MARK: - Parameters
     private let settingsView = SettingsView()
     
@@ -17,6 +14,7 @@ class settingsViewController: UIViewController {
         super.viewDidLoad()
         setViews()
         updateSettings()
+        setNavAppearance()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,6 +27,20 @@ extension settingsViewController {
     private func setViews() {
         view = settingsView
         settingsView.delegate = self
+    }
+    
+    private func setNavAppearance() {
+        //title
+        title = RulesModel.Label.title
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
+        //navigationBar
+        let leftButton = NavBarButton(with: .left)
+        leftButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    }
+    
+    @objc func backButtonAction() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func updateSettings () {
@@ -113,6 +125,7 @@ extension settingsViewController: SettingsViewDelegate {
             self.settingsView.customCell.forEach { cell in
                 cell.layer.shadowColor = gameData.getFontColor().cgColor
             }
+            self.setNavAppearance()
         }
     }
     

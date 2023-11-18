@@ -24,9 +24,6 @@ class RulesViewController: UIViewController {
         super.viewWillAppear(animated)
         view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
     }
-    
-    //MARK: - Methods
-    
 }
 
 extension RulesViewController {
@@ -34,11 +31,13 @@ extension RulesViewController {
     
     private func setViews() {
         view = rulesView
-        title = RulesModel.Label.title
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
     }
     
     private func setNavAppearance() {
+        //title
+        title = RulesModel.Label.title
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
+        //navigationBar
         let leftButton = NavBarButton(with: .left)
         leftButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
