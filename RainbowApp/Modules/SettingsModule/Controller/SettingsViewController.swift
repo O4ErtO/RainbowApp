@@ -31,7 +31,7 @@ extension settingsViewController {
     
     private func setNavAppearance() {
         //title
-        title = RulesModel.Label.title
+        title = SettingsLabel.settings
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
         //navigationBar
         let leftButton = NavBarButton(with: .left)
@@ -41,6 +41,8 @@ extension settingsViewController {
     
     @objc func backButtonAction() {
         navigationController?.popToRootViewController(animated: true)
+        gameData.gameModel = GameModel()
+        gameData.saveGameModel()
     }
     
     private func updateSettings () {
