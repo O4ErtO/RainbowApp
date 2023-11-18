@@ -33,9 +33,9 @@ final class Button: UIButton {
         titleLabel?.font = UIFont.systemFont(ofSize: titleSize)
         setTitleColor(titleColor, for: .normal)
         layer.cornerRadius = 10
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = .init(width: 5, height: 10)
+        layer.shadowColor = gameData.getFontColor().cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = .init(width: 5, height: 5)
         layer.shadowRadius =  5
         layer.shouldRasterize = true
         layer.masksToBounds = false

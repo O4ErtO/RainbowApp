@@ -43,9 +43,6 @@ class SettingsView: UIView {
     
     var customCell = [SettingsCellView]()
 
-    var colors: [UIColor] = [
-        .cyan, .green, .blue, .purple, .systemPink, .orange, .red, .systemTeal, .magenta, .systemIndigo, .black, .gray
-    ]
     // cell 1
     private let gameTimeLabel = UILabel(text: SettingsLabel.gameTime)
     let timeSlider = UISlider(maxValue: 60, minValue: 5)
@@ -145,7 +142,7 @@ class SettingsView: UIView {
         customCell[2].addSubview(checkSwitch)
         checkSwitch.addTarget(self, action: #selector(switchAction(sender:)), for: .valueChanged)
         
-        for color in colors {
+        for color in gameData.allColors {
             checkBoxColors.append(ColorboxView(color: color))
         }
         
