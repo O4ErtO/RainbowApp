@@ -11,15 +11,14 @@ class RulesView: UIView {
     
     private lazy var whiteSquare: UIView = {
         
-        let squareView = UIView(frame: .zero)
+        let squareView = UIView()
         squareView.backgroundColor = .white
-
+        squareView.layer.cornerRadius = 10
         return squareView
     }()
     
     private lazy var title: UILabel = {
         let label = UILabel()
-        
         label.text = RulesModel.Label.titleOfRulesGame
         label.textColor = RulesModel.Color.colorForTitle
         label.font = UIFont.systemFont(ofSize: 28)
@@ -39,20 +38,20 @@ class RulesView: UIView {
         label.attributedText = attributedString
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .left
-        label.numberOfLines = 5
+        label.numberOfLines = 0
         
         return label
     }()
     
     
-    private lazy var HstackView: UIStackView = {
+    private lazy var hStackView: UIStackView = {
         let stack = UIStackView()
-            stack.translatesAutoresizingMaskIntoConstraints = false
-            stack.axis = .horizontal
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
         stack.spacing = 50
-            
-            stack.addArrangedSubview(VstackViewForLeft)
-            stack.addArrangedSubview(VstackForRight)
+        
+        stack.addArrangedSubview(VstackViewForLeft)
+        stack.addArrangedSubview(VstackForRight)
         
         return stack
     }()
@@ -82,13 +81,14 @@ class RulesView: UIView {
         
         return stack
     }()
-   
+    
     private lazy var onWord: UILabel = {
         let label = UILabel()
         
         label.text = RulesModel.Label.backgroundOn
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -109,7 +109,8 @@ class RulesView: UIView {
         
         label.text = RulesModel.Label.backgroundOff
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -134,7 +135,7 @@ class RulesView: UIView {
         label.attributedText = attributedString
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .left
-        label.numberOfLines = 10
+        label.numberOfLines = 0
         
         return label
     }()
@@ -146,7 +147,7 @@ class RulesView: UIView {
         label.text = RulesModel.Label.desctiptionThirdPart
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .left
-        label.numberOfLines = 10
+        label.numberOfLines = 0
         
         return label
     }()
@@ -171,7 +172,7 @@ class RulesView: UIView {
         addSubview(whiteSquare)
         whiteSquare.addSubview(title)
         whiteSquare.addSubview(firstPartDescription)
-        whiteSquare.addSubview(HstackView)
+        whiteSquare.addSubview(hStackView)
         whiteSquare.addSubview(secondPartDescripton)
         whiteSquare.addSubview(thirdPartDescripton)
     }
@@ -185,12 +186,12 @@ class RulesView: UIView {
         thirdPartDescripton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            whiteSquare.centerXAnchor.constraint(equalTo: centerXAnchor),
-            whiteSquare.centerYAnchor.constraint(equalTo: centerYAnchor),
-            whiteSquare.topAnchor.constraint(equalTo: topAnchor, constant: 160),
-            whiteSquare.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
-            whiteSquare.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            whiteSquare.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            //            whiteSquare.centerXAnchor.constraint(equalTo: centerXAnchor),
+            //            whiteSquare.centerYAnchor.constraint(equalTo: centerYAnchor),
+            whiteSquare.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            whiteSquare.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            whiteSquare.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            whiteSquare.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             // Title
             title.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
@@ -200,17 +201,19 @@ class RulesView: UIView {
             
             firstPartDescription.topAnchor.constraint(equalTo: title.topAnchor, constant: 40),
             firstPartDescription.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
-            firstPartDescription.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -10),
+            firstPartDescription.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -25),
             
             //HstackView
-            HstackView.topAnchor.constraint(equalTo: firstPartDescription.bottomAnchor, constant: 20),
-            HstackView.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
-            buttonOn.widthAnchor.constraint(equalToConstant: 96),
+            hStackView.topAnchor.constraint(equalTo: firstPartDescription.bottomAnchor, constant: 20),
+            hStackView.leadingAnchor.constraint(equalTo: firstPartDescription.leadingAnchor, constant: 10),
+            hStackView.trailingAnchor.constraint(equalTo: firstPartDescription.trailingAnchor, constant: -10),
+            //hStackView.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
+            //buttonOn.widthAnchor.constraint(equalToConstant: 96),
             buttonOn.heightAnchor.constraint(equalToConstant: 26),
             
             
             //secondPart
-            secondPartDescripton.topAnchor.constraint(equalTo: HstackView.bottomAnchor, constant: 40),
+            secondPartDescripton.topAnchor.constraint(equalTo: hStackView.bottomAnchor, constant: 40),
             secondPartDescripton.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
             secondPartDescripton.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -10),
             
