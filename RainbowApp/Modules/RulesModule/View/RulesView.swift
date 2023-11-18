@@ -3,17 +3,24 @@
 //
 
 import UIKit
-
+import SnapKit
 
 class RulesView: UIView {
     
     //MARK: - Parameters
     
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.layer.cornerRadius = 10
+        clipsToBounds = true
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
     private lazy var whiteSquare: UIView = {
         
         let squareView = UIView()
         squareView.backgroundColor = .white
-        squareView.layer.cornerRadius = 10
         return squareView
     }()
     
@@ -165,16 +172,22 @@ class RulesView: UIView {
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        scrollView.contentSize = whiteSquare.frame.size
+    }
     
     //MARK: - Methods
     
     private func setupView() {
-        addSubview(whiteSquare)
+        addSubview(scrollView)
+        scrollView.addSubview(whiteSquare)
         whiteSquare.addSubview(title)
         whiteSquare.addSubview(firstPartDescription)
         whiteSquare.addSubview(hStackView)
         whiteSquare.addSubview(secondPartDescripton)
         whiteSquare.addSubview(thirdPartDescripton)
+        layoutSubviews()
     }
     
     private func setupConstraints() {
@@ -185,42 +198,48 @@ class RulesView: UIView {
         secondPartDescripton.translatesAutoresizingMaskIntoConstraints = false
         thirdPartDescripton.translatesAutoresizingMaskIntoConstraints = false
         
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        whiteSquare.snp.makeConstraints { make in
+            make.top.equalTo(scrollView)
+            make.leading.trailing.equalTo(self).inset(20)
+           // make.height.equalTo(1000)
+        }
+        
+                thirdPartDescripton.snp.makeConstraints { make in
+                    make.top.equalTo(secondPartDescripton.snp.bottom).inset(-20)
+                    make.bottom.equalTo(whiteSquare).inset(16)
+                    make.leading.trailing.equalTo(firstPartDescription)
+                }
+        
         NSLayoutConstraint.activate([
-            //            whiteSquare.centerXAnchor.constraint(equalTo: centerXAnchor),
-            //            whiteSquare.centerYAnchor.constraint(equalTo: centerYAnchor),
-            whiteSquare.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
-            whiteSquare.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            whiteSquare.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            whiteSquare.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            // Title
-            title.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
-            title.topAnchor.constraint(equalTo: whiteSquare.topAnchor, constant: 16),
+                        // Title
+                        title.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
+                        title.topAnchor.constraint(equalTo: whiteSquare.topAnchor, constant: 16),
             
-            //firstPart
+                        //firstPart
             
-            firstPartDescription.topAnchor.constraint(equalTo: title.topAnchor, constant: 40),
-            firstPartDescription.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
-            firstPartDescription.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -25),
+                        firstPartDescription.topAnchor.constraint(equalTo: title.topAnchor, constant: 40),
+                        firstPartDescription.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
+                        firstPartDescription.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -25),
             
-            //HstackView
-            hStackView.topAnchor.constraint(equalTo: firstPartDescription.bottomAnchor, constant: 20),
-            hStackView.leadingAnchor.constraint(equalTo: firstPartDescription.leadingAnchor, constant: 10),
-            hStackView.trailingAnchor.constraint(equalTo: firstPartDescription.trailingAnchor, constant: -10),
-            //hStackView.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
-            //buttonOn.widthAnchor.constraint(equalToConstant: 96),
-            buttonOn.heightAnchor.constraint(equalToConstant: 26),
-            
-            
-            //secondPart
-            secondPartDescripton.topAnchor.constraint(equalTo: hStackView.bottomAnchor, constant: 40),
-            secondPartDescripton.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
-            secondPartDescripton.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -10),
-            
-            //thirdPart
-            thirdPartDescripton.bottomAnchor.constraint(equalTo: whiteSquare.bottomAnchor, constant: -15),
-            thirdPartDescripton.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
-            thirdPartDescripton.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -10)
+                        //HstackView
+                        hStackView.topAnchor.constraint(equalTo: firstPartDescription.bottomAnchor, constant: 20),
+                        hStackView.leadingAnchor.constraint(equalTo: firstPartDescription.leadingAnchor, constant: 10),
+                        hStackView.trailingAnchor.constraint(equalTo: firstPartDescription.trailingAnchor, constant: -10),
+                        //hStackView.centerXAnchor.constraint(equalTo: whiteSquare.centerXAnchor),
+                        //buttonOn.widthAnchor.constraint(equalToConstant: 96),
+                        buttonOn.heightAnchor.constraint(equalToConstant: 26),
+
+                        
+                        //secondPart
+                        secondPartDescripton.topAnchor.constraint(equalTo: hStackView.bottomAnchor, constant:16),
+                        secondPartDescripton.leadingAnchor.constraint(equalTo: whiteSquare.leadingAnchor, constant: 25),
+                        secondPartDescripton.trailingAnchor.constraint(equalTo: whiteSquare.trailingAnchor, constant: -10),
         ])
     }
 }
