@@ -29,7 +29,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/DmitryLorents/RainbowApp/blob/develop/RainbowApp/SupportingFiles/Assets.xcassets/settingsVC.imageset/settingsVC.png" width="140"/>  <img src="https://github.com/DmitryLorents/RainbowApp/blob/develop/RainbowApp/SupportingFiles/Assets.xcassets/Readme/rulesVC.imageset/rulesVC.png" width="140"/>
+  <img src="https://github.com/DmitryLorents/RainbowApp/blob/develop/RainbowApp/SupportingFiles/Assets.xcassets/Readme/settingsVC.imageset/settingsVC.png" width="140"/>  <img src="https://github.com/DmitryLorents/RainbowApp/blob/develop/RainbowApp/SupportingFiles/Assets.xcassets/Readme/rulesVC.imageset/rulesVC.png" width="140"/>
 </p>
 
 ---
