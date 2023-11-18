@@ -139,7 +139,7 @@ class MainView: UIView {
     //MARK: - Methods
     
     private func setupView() {
-        backgroundColor = R.Color.backgroundColor
+        backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
         
         addSubview(rainbowImage)
         addSubview(questionMarkButton)
