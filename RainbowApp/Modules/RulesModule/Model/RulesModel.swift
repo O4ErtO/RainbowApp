@@ -7,7 +7,8 @@ import UIKit
 
 enum RulesModel {
     enum Label {
-        static let textLables = "Синий" 
+        static let title = "Помощь"
+        static let textLables = "   Синий   "
         static let titleOfRulesGame = "ПРАВИЛА ИГРЫ"
         static let desctiptionFirstPart = "На экране в случайном месте появляется слово, обозначающее цвет, например: написано «синий»:"
         static let descriptionSecondPart = "Нужно произнести вслух цвет слова (если опция «подложка для букв» выключена) или цвет фона, на котором написано слово (если опция «подложка для букв» включена): говорим «зеленый» ."

@@ -38,13 +38,15 @@ final class NavBarButton: UIButton {
     }
     
     private func config() {
+        let fontColor: UIColor = gameData.getFontColor()
         switch buttonsType {
             
         case .left:
-            setImage(R.Image.arrow, for: .normal)
+            
+            setImage(R.Image.arrow?.withTintColor(fontColor), for: .normal)
             addTarget(self, action: #selector(tapLeftButton), for: .touchUpInside)
         case .right:
-            setImage(R.Image.pause, for: .normal)
+            setImage(R.Image.pause?.withTintColor(fontColor), for: .normal)
             addTarget(self, action: #selector(tapRightButton), for: .touchUpInside)
         }
         makeSystem(self)

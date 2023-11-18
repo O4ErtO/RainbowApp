@@ -29,6 +29,7 @@ class ResultsViewController: UIViewController {
     
     private func setupViews() {
         view = resultView
+        view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
         resultView.setDelegates(delegate: self, dataSource: self)
         resultView.delegate = self
         //set title appearance

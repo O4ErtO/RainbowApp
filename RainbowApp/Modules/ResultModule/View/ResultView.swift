@@ -40,7 +40,6 @@ class ResultView: UIView {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
         setConstraints()
     }
@@ -61,8 +60,9 @@ class ResultView: UIView {
 }
 
 private extension ResultView {
+    
     private func setupUI() {
-        backgroundColor = .systemGray
+        backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
         setupSubviews(
             tableView,
             clearButton
@@ -79,7 +79,7 @@ private extension ResultView {
     private func setConstraints() {
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(80)
+            make.top.equalTo(safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(clearButton.snp.top).inset(-30)
         }
