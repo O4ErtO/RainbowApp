@@ -14,7 +14,11 @@ class ResultCell: UITableViewCell {
     
     private let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        //set backgroundColor
+        let grayColorHex = "#00000033"
+        let whiteColorHex = "#FFFFFF"
+        let grayColor = hexStringToUIColor(hex: "#00000033")
+        view.backgroundColor = (gameData.settingsModel.backgroundColor == whiteColorHex) ? grayColor : .white
         view.layer.cornerRadius = 15
         return view
     }()
