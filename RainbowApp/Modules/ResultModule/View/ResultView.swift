@@ -79,7 +79,7 @@ private extension ResultView {
     private func setConstraints() {
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(80)
+            make.top.equalTo(safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(clearButton.snp.top).inset(-30)
         }
