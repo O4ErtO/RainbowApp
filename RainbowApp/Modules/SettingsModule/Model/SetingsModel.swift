@@ -21,6 +21,7 @@ enum WordPosition: Int, Codable {
 }
 
 enum SettingsLabel {
+    static let settings = "Настройки"
     static let gameTime = "Время игры"
     static let speed = "Скорость смены заданий"
     static let check = "Игра с проверкой заданий"

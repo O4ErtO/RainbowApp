@@ -40,6 +40,12 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let nav = self.navigationController?.navigationBar
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: gameData.getFontColor()]
+    }
+    
     // MARK: - Methods
     
     @objc func updateTimer() {
