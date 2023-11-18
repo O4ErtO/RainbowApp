@@ -40,7 +40,6 @@ class ResultView: UIView {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
         setConstraints()
     }
@@ -61,8 +60,9 @@ class ResultView: UIView {
 }
 
 private extension ResultView {
+    
     private func setupUI() {
-        backgroundColor = .systemGray
+        backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
         setupSubviews(
             tableView,
             clearButton
