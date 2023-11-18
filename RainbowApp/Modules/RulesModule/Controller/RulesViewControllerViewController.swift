@@ -17,6 +17,12 @@ class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
+        setNavAppearance()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = hexStringToUIColor(hex: gameData.settingsModel.backgroundColor)
     }
     
     //MARK: - Methods
@@ -28,6 +34,18 @@ extension RulesViewController {
     
     private func setViews() {
         view = rulesView
+        title = RulesModel.Label.title
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30), .foregroundColor: gameData.getFontColor()]
+    }
+    
+    private func setNavAppearance() {
+        let leftButton = NavBarButton(with: .left)
+        leftButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    }
+    
+    @objc func backButtonAction() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
