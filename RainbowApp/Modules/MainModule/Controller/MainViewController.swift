@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

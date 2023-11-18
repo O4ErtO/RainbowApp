@@ -30,6 +30,7 @@
 		0ACD9E952B02BF5200FE9DBA /* UIFont + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD9E932B02BF5200FE9DBA /* UIFont + ext.swift */; };
 		0ACD9E972B02BF6F00FE9DBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */; };
 		0ACD9E9B2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */; };
+		950A59B12B090174000DFEF9 /* PhoneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A59B02B090174000DFEF9 /* PhoneDevice.swift */; };
 		95623C172B03F42700D244A5 /* NavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C162B03F42700D244A5 /* NavBarButton.swift */; };
 		95623C192B0403ED00D244A5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C182B0403ED00D244A5 /* Button.swift */; };
 		95623C1B2B042AEE00D244A5 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */; };
@@ -67,6 +68,7 @@
 		0ACD9E962B02BF6F00FE9DBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ACD9E9A2B02BF7900FE9DBA /* CormorantInfant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantInfant-Regular.ttf"; sourceTree = "<group>"; };
 		0ACD9E9C2B02BF8800FE9DBA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		950A59B02B090174000DFEF9 /* PhoneDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDevice.swift; sourceTree = "<group>"; };
 		95623C162B03F42700D244A5 /* NavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarButton.swift; sourceTree = "<group>"; };
 		95623C182B0403ED00D244A5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		95623C1A2B042AEE00D244A5 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACD9E8B2B02BF0700FE9DBA /* MainView.swift */,
+				950A59B02B090174000DFEF9 /* PhoneDevice.swift */,
 				95623C162B03F42700D244A5 /* NavBarButton.swift */,
 			);
 			path = View;
@@ -448,6 +451,7 @@
 				0ACD9E8E2B02BF0700FE9DBA /* MainView.swift in Sources */,
 				0ACD9E942B02BF5200FE9DBA /* UIColor + ext.swift in Sources */,
 				ACC0F5522B0568FA0016C3ED /* GameData.swift in Sources */,
+				950A59B12B090174000DFEF9 /* PhoneDevice.swift in Sources */,
 				0ACD9E8D2B02BF0700FE9DBA /* MainModel.swift in Sources */,
 				0A162AC72AFD20FA00DF885A /* GameViewController.swift in Sources */,
 				0A162ACB2AFD20FA00DF885A /* SetingsModel.swift in Sources */,

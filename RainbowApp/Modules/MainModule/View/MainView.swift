@@ -20,6 +20,8 @@ class MainView: UIView {
     //MARK: - Parameters
     
     weak var delegate: MainViewDelegate?
+    private let heigth = DeviceModel.getDeviceSize()
+
     
     private lazy var labelStack: UIStackView = {
         let stack = UIStackView()
@@ -129,7 +131,8 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        setContraints()
+        setContraints(width: heigth)
+
     }
     
     required init?(coder: NSCoder) {
@@ -158,39 +161,75 @@ class MainView: UIView {
         }
     }
     
-    private func setContraints() {
-        NSLayoutConstraint.activate([
-            rainbowImage.topAnchor.constraint(equalTo: topAnchor, constant: 92),
-            rainbowImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            rainbowImage.widthAnchor.constraint(equalToConstant: 302),
-            rainbowImage.heightAnchor.constraint(equalToConstant: 150),
-            
-            questionMarkButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
-            questionMarkButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            questionMarkButton.heightAnchor.constraint(equalToConstant: 50),
-            questionMarkButton.widthAnchor.constraint(equalToConstant: 50),
-            
-            configButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
-            configButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            configButton.heightAnchor.constraint(equalToConstant: 50),
-            configButton.widthAnchor.constraint(equalToConstant: 50),
-            
-            labelStack.topAnchor.constraint(equalTo: rainbowImage.bottomAnchor, constant: 40),
-            labelStack.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            buttonStack.bottomAnchor.constraint(equalTo: configButton.topAnchor, constant: -30),
-            buttonStack.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            newGameButton.widthAnchor.constraint(equalToConstant: 274),
-            newGameButton.heightAnchor.constraint(equalToConstant: 83),
-            
-            nextButton.widthAnchor.constraint(equalToConstant: 274),
-            nextButton.heightAnchor.constraint(equalToConstant: 83),
-            
-            statisticButton.widthAnchor.constraint(equalToConstant: 274),
-            statisticButton.heightAnchor.constraint(equalToConstant: 83),
-            
-        ])
+    private func setContraints(width: DeviceModel) {
+        switch width {
+        case .other:
+            NSLayoutConstraint.activate([
+                rainbowImage.topAnchor.constraint(equalTo: topAnchor, constant: 92),
+                rainbowImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+                rainbowImage.widthAnchor.constraint(equalToConstant: 302),
+                rainbowImage.heightAnchor.constraint(equalToConstant: 150),
+                
+                questionMarkButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
+                questionMarkButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                questionMarkButton.heightAnchor.constraint(equalToConstant: 50),
+                questionMarkButton.widthAnchor.constraint(equalToConstant: 50),
+                
+                configButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
+                configButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                configButton.heightAnchor.constraint(equalToConstant: 50),
+                configButton.widthAnchor.constraint(equalToConstant: 50),
+                
+                labelStack.topAnchor.constraint(equalTo: rainbowImage.bottomAnchor, constant: 40),
+                labelStack.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                buttonStack.bottomAnchor.constraint(equalTo: configButton.topAnchor, constant: -30),
+                buttonStack.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                newGameButton.widthAnchor.constraint(equalToConstant: 274),
+                newGameButton.heightAnchor.constraint(equalToConstant: 83),
+                
+                nextButton.widthAnchor.constraint(equalToConstant: 274),
+                nextButton.heightAnchor.constraint(equalToConstant: 83),
+                
+                statisticButton.widthAnchor.constraint(equalToConstant: 274),
+                statisticButton.heightAnchor.constraint(equalToConstant: 83),
+                
+            ])
+        case .iPhoneSE:
+            NSLayoutConstraint.activate([
+                rainbowImage.topAnchor.constraint(equalTo: topAnchor, constant: 42),
+                rainbowImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+                rainbowImage.widthAnchor.constraint(equalToConstant: 302),
+                rainbowImage.heightAnchor.constraint(equalToConstant: 150),
+                
+                questionMarkButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+                questionMarkButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+                questionMarkButton.heightAnchor.constraint(equalToConstant: 50),
+                questionMarkButton.widthAnchor.constraint(equalToConstant: 50),
+                
+                configButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+                configButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                configButton.heightAnchor.constraint(equalToConstant: 50),
+                configButton.widthAnchor.constraint(equalToConstant: 50),
+                
+                labelStack.topAnchor.constraint(equalTo: rainbowImage.bottomAnchor, constant: 20),
+                labelStack.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                buttonStack.bottomAnchor.constraint(equalTo: configButton.topAnchor, constant: -10),
+                buttonStack.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                newGameButton.widthAnchor.constraint(equalToConstant: 274),
+                newGameButton.heightAnchor.constraint(equalToConstant: 63),
+                
+                nextButton.widthAnchor.constraint(equalToConstant: 274),
+                nextButton.heightAnchor.constraint(equalToConstant: 63),
+                
+                statisticButton.widthAnchor.constraint(equalToConstant: 274),
+                statisticButton.heightAnchor.constraint(equalToConstant: 63),
+                
+            ])
+        }
     }
     
     //MARK: - QuestionMarkButtonAction

@@ -10,11 +10,13 @@ protocol SpeedButtonDelegate: AnyObject {
 
 class GameView: UIView {
     weak var delegate: SpeedButtonDelegate?
+//    private let deviceHeight = DeviceModel.getDeviceSizeCGFolat() / 6
+
     
     //MARK: - Parameters
     var playButtons = [Button]()
     
-    private let heightAnch: CGFloat = 100
+    private let heightAnch: CGFloat = DeviceModel.getDeviceSizeCGFolat() / 10
     private var colorsArray: [UIColor]
     private var titlesArray: [String]
     private let titleSpeedButton: String
@@ -124,8 +126,8 @@ extension GameView {
         }
         
         NSLayoutConstraint.activate([
-            speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
-            speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            speedbutton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            speedbutton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             speedbutton.widthAnchor.constraint(equalToConstant: 50),
             speedbutton.heightAnchor.constraint(equalToConstant: 50)
         ])
